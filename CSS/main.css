@@ -26,4 +26,21 @@ body {
   background-color: white;
 }
 
+#char-title {
+  text-align: center;
+  margin: 75px 0 45px 0;
+}
+
+.characters {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+.characters .char {
+  border: 1px solid black;
+  margin: 25px;
+  text-align: center;
+  background-color: white;
+}
+
 /*# sourceMappingURL=main.css.map */

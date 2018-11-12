@@ -34,7 +34,6 @@ function Characters(result){
         char_button.setAttribute('id', i);
         char_button.type = "button";
         char_button.value = "Play as " + result[i].aliases;
-        char_button.addEventListener("click", SelectHero());
         // Append everything
         char.appendChild(char_img);
         char.appendChild(char_title);

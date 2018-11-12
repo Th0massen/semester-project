@@ -1,0 +1,22 @@
+
+.logo{
+    width: 100%;
+    margin-top: 100px;
+    .image{
+        display: block;
+        margin: 15px auto;
+    }
+    .title{
+        text-align: center;
+    }
+}
+
+.playBtn{
+    margin-top: 100px;
+    text-align: center;
+    a {
+        border: 1px solid black;
+        padding: 10px 35px;
+        background-color: white;
+    }
+}

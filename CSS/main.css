@@ -1,6 +1,29 @@
 body {
   margin: 0;
   background-color: #2b2b2b;
+  background-image: url(../resources/background_texture.svg);
+}
+
+.logo {
+  width: 100%;
+  margin-top: 100px;
+}
+.logo .image {
+  display: block;
+  margin: 15px auto;
+}
+.logo .title {
+  text-align: center;
+}
+
+.playBtn {
+  margin-top: 100px;
+  text-align: center;
+}
+.playBtn a {
+  border: 1px solid black;
+  padding: 10px 35px;
+  background-color: white;
 }
 
 /*# sourceMappingURL=main.css.map */

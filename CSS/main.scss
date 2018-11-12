@@ -4,6 +4,8 @@
 body{
     margin: 0;
     background-color: $BG_color;
+    background-image: url(../resources/background_texture.svg);
 }
 
+@import "partials/_index";
 

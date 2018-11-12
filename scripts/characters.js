@@ -42,12 +42,42 @@ function Characters(result){
         characters.appendChild(char);
     }
     container.appendChild(characters);
-    selectHero1();
 };
 
-function selectHero1(){
-    let button = document.getElementById("button"+0);
-    button.addEventListener('click', function(){
-        console.log('button' + 0);
-    })
-}
+// This is probably not a good way to handle this, but i wasn't able to get event listeners to function properly on dynamically created elements
+// since button[i] became the last element in the list, the previous got overwritten. returning to this section later... 
+
+document.body.addEventListener( 'click', function(event){
+    if(event.srcElement.id == 'button0'){
+      console.log(event.srcElement.value);
+      // do shit
+    } else if(event.srcElement.id == 'button1'){
+        console.log(event.srcElement.value);
+        //do shit
+    } else if(event.srcElement.id == 'button2'){
+        console.log(event.srcElement.value);
+        //do shit
+    } else if(event.srcElement.id == 'button3'){
+        console.log(event.srcElement.value);
+        //do shit
+    } else if(event.srcElement.id == 'button4'){
+        console.log(event.srcElement.value);
+        //do shit
+    } else if(event.srcElement.id == 'button5'){
+        console.log(event.srcElement.value);
+        //do shit
+    } else if(event.srcElement.id == 'button6'){
+        console.log(event.srcElement.value);
+        //do shit
+    } else if(event.srcElement.id == 'button7'){
+        console.log(event.srcElement.value);
+        //do shit
+    } else if(event.srcElement.id == 'button8'){
+        console.log(event.srcElement.value);
+        //do shit
+    } else if(event.srcElement.id == 'button9'){
+        console.log(event.srcElement.value);
+        //do shit
+    } 
+});
+

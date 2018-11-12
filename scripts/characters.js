@@ -31,7 +31,7 @@ function Characters(result){
         // Add button.
         char_button = document.createElement('input');
         char_button.setAttribute('class', "selectBtn");
-        char_button.setAttribute('id', i);
+        char_button.setAttribute('id', "button"+i);
         char_button.type = "button";
         char_button.value = "Play as " + result[i].aliases;
         // Append everything
@@ -42,15 +42,12 @@ function Characters(result){
         characters.appendChild(char);
     }
     container.appendChild(characters);
+    selectHero1();
 };
 
-/*
-var buttons = document.getElementsByClassName('selectBtn');
-for(var i = 0; i < selectBtn.length; i++){
-    buttons.addEventListener('click', selectHero());
+function selectHero1(){
+    let button = document.getElementById("button"+0);
+    button.addEventListener('click', function(){
+        console.log('button' + 0);
+    })
 }
-
-function selectHero(){
-    console.log("hello");
-}
-*/

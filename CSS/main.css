@@ -33,7 +33,7 @@ body {
 
 .characters {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
 }
 .characters .char {
@@ -41,6 +41,9 @@ body {
   margin: 25px;
   text-align: center;
   background-color: white;
+}
+.characters .char img {
+  margin-top: 10px;
 }
 
 /*# sourceMappingURL=main.css.map */

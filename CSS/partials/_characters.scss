@@ -6,12 +6,15 @@
 
 .characters{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 10px;
     .char{
         border: 1px solid black;
         margin: 25px;
         text-align: center;
         background-color: white;
+        img{
+            margin-top: 10px;
+        }
     }
 }

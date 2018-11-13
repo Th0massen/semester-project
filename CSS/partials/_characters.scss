@@ -11,10 +11,13 @@
     .char{
         border: 1px solid black;
         margin: 25px;
+        padding: 10px;
         text-align: center;
         background-color: white;
-        img{
-            margin-top: 10px;
+        .token{
+            margin: 10px;
+            border: 2px solid #2b2b2b;
+            border-radius: 35px;
         }
     }
 }

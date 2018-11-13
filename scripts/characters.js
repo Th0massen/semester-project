@@ -27,6 +27,7 @@ function Characters(result){
         char_gender.innerHTML = result[i].gender;
         // Add player tokens.
         char_img = document.createElement('img');
+        char_img.setAttribute('class', 'token')
         char_img.src="https://via.placeholder.com/150";
         // Add button.
         char_button = document.createElement('input');

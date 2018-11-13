@@ -39,11 +39,14 @@ body {
 .characters .char {
   border: 1px solid black;
   margin: 25px;
+  padding: 10px;
   text-align: center;
   background-color: white;
 }
-.characters .char img {
-  margin-top: 10px;
+.characters .char .token {
+  margin: 10px;
+  border: 2px solid #2b2b2b;
+  border-radius: 35px;
 }
 
 /*# sourceMappingURL=main.css.map */

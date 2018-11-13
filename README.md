@@ -1,4 +1,4 @@
-semester project design2
+semester project 2 - Noroff
 
 Project Details : 
 Create an online board game for Game of Thrones using the following API: https://anapioficeandfire.com/. The board game will be made using HTML, CSS and JavaScript. You do not need to have seen or read Game of Thrones to be able to complete the assignment.

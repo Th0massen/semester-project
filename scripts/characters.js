@@ -10,7 +10,6 @@ fetch('https://anapioficeandfire.com/api/characters')
 
 // Function to handle recieved data
 function Characters(result){
-    console.log("Creating Characters...");
     let container = document.getElementById("container");
     let characters = document.createElement("div");
     characters.setAttribute('class', '[ characters ]');
@@ -46,13 +45,9 @@ function Characters(result){
         characters.appendChild(char);
     }
     container.appendChild(characters);
-    console.log('Characters created, listening for user actions...');
 };
 
-// This is probably not a good way to handle this, but i wasn't able to get event listeners to function properly on dynamically created elements
-// since button[i] became the last element in the list, the previous got overwritten.
-// so i added a listener to the body, and checks if the user clicked on any of the characters :)
-
+// Add event listener on document body to register user actions
 document.body.addEventListener( 'click', function(event){ 
     switch(event = event.target.id){
         case 'The Daughter of the Dusk':
@@ -117,7 +112,6 @@ function selectHero(event){
     console.log("User selected: " + event);
     let hero = document.getElementsByClassName(event); 
     let heroButton = document.getElementById(event + 'button');
-    console.log(hero);
     hero[0].style.border = '5px solid green';
     heroButton.style.display = 'block';
 }

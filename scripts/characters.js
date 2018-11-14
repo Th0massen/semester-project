@@ -32,11 +32,12 @@ function Characters(result){
         char_img.setAttribute('class', 'token')
         char_img.src="https://via.placeholder.com/150";
         // Add button.
-        char_button = document.createElement('input');
+        char_button = document.createElement('a');
         char_button.setAttribute('class', "[ selectBtn ]");
         char_button.setAttribute('id', result[i].aliases + 'button')
         char_button.type = "button";
-        char_button.value = "Play as " + result[i].aliases;
+        char_button.innerHTML = "Play as " + result[i].aliases;
+        char_button.href = "game.html";
         // Append everything
         char.appendChild(char_img);
         char.appendChild(char_title);

@@ -40,13 +40,28 @@ body {
   border: 1px solid black;
   margin: 25px;
   padding: 10px;
-  text-align: center;
   background-color: white;
+}
+.characters .char .selectBtn {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 0;
+  margin-top: 15px;
+  display: none;
 }
 .characters .char .token {
   margin: 10px;
   border: 2px solid #2b2b2b;
   border-radius: 35px;
+  display: block;
+  margin: 5px auto;
+}
+.characters .char h2 {
+  width: 50%;
+  margin-top: 25px;
+}
+.characters .char p {
+  width: 30%;
 }
 
 /*# sourceMappingURL=main.css.map */

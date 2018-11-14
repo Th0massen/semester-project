@@ -16,7 +16,6 @@ function Characters(result){
     characters.setAttribute('class', '[ characters ]');
     // Create the characters
     for(let i = 0; i < result.length; i++){
-        console.log(result[i]);
         let char = document.createElement('div');
         //char.setAttribute('class', '[ '+ result[i].aliases +' ]' + '[ char ]' );
         char.setAttribute('class', '[ char ]'+'[ ' + result[i].aliases + ' ]');
@@ -35,10 +34,9 @@ function Characters(result){
         // Add button.
         char_button = document.createElement('input');
         char_button.setAttribute('class', "[ selectBtn ]");
-        //char_button.setAttribute('id', i);
+        char_button.setAttribute('id', result[i].aliases + 'button')
         char_button.type = "button";
         char_button.value = "Play as " + result[i].aliases;
-        var buttonData = result[i].aliases;
         // Append everything
         char.appendChild(char_img);
         char.appendChild(char_title);
@@ -47,6 +45,7 @@ function Characters(result){
         characters.appendChild(char);
     }
     container.appendChild(characters);
+    console.log('Characters created, listening for user actions...');
 };
 
 // This is probably not a good way to handle this, but i wasn't able to get event listeners to function properly on dynamically created elements
@@ -54,64 +53,44 @@ function Characters(result){
 // so i added a listener to the body, and checks if the user clicked on any of the characters :)
 
 document.body.addEventListener( 'click', function(event){ 
-    switch(event = event.srcElement.id){
+    switch(event = event.target.id){
         case 'The Daughter of the Dusk':
-        case 'The Daughter of the Dusk_title':
-        case 'The Daughter of the Dusk_info':
             clearButtons();
             selectHero(event);
             break;
         case 'Hodor':
-        case 'Hodor_title':
-        case 'Hodor_info':
             clearButtons();
             selectHero(event);
             break;
         case 'Lamprey':
-        case 'Lamprey_title':
-        case 'Lamprey_info':
             clearButtons();
             selectHero(event);
             break;  
         case 'The Merling Queen':
-        case 'The Merling Queen_title':
-        case 'The Merling Queen_info':
             clearButtons();
             selectHero(event);
             break;
         case 'Old Crackbones':
-        case 'Old Crackbones_title':
-        case 'Old Crackbones_info':
             clearButtons();
             selectHero(event);
             break;  
         case 'The Poetess':
-        case 'The Poetess_title':
-        case 'The Poetess_info':
             clearButtons();
             selectHero(event);
             break;  
         case 'Porridge':
-        case 'Porridge_title':
-        case 'Porridge_info':
             clearButtons();
             selectHero(event);
             break;  
         case 'Quickfinger':
-        case 'Quickfinger_title':
-        case 'Quickfinger_info':
             clearButtons();
             selectHero(event);
             break;
         case "the Sailor's Wife":
-        case "the Sailor's Wife_title":
-        case "the Sailor's Wife_info":
             clearButtons();
             selectHero(event);
             break; 
         case 'The Veiled Lady':
-        case 'The Veiled Lady_title':
-        case 'The Veiled Lady_info':
             clearButtons();
             selectHero(event);
             break;     
@@ -119,17 +98,25 @@ document.body.addEventListener( 'click', function(event){
 });
 
 
-// When a user clicks a button, remove the style of all other buttons
+// When a user clicks on a hero, remove the style of the other heroes
 function clearButtons(){
     let el = document.querySelectorAll('.char');
     for(let i = 0; i < el.length; i++){
         el[i].style.border = "none";
     }
+    let btn = document.querySelectorAll('.selectBtn');
+    for(let j = 0; j < btn.length; j++ ){
+        btn[j].style.display = 'none';
+    }
 }
 
+
+// When a user clicks on a character, give it a border to highlight selected hero, and display button to contine.
 function selectHero(event){
-    console.log("play as: " + event + '?');
+    console.log("User selected: " + event);
     let hero = document.getElementsByClassName(event); 
+    let heroButton = document.getElementById(event + 'button');
     console.log(hero);
-    hero[0].style.border = '3px solid green';
+    hero[0].style.border = '5px solid green';
+    heroButton.style.display = 'block';
 }

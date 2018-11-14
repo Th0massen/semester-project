@@ -2,6 +2,31 @@
 #char-title{
     text-align: center;
     margin: 75px 0 45px 0;
+    #players{
+        width: 300px;
+        margin: 25px auto;
+        #playerOne{
+            color: white;
+            padding: 10px 20px;
+            background-color: #2b2b2b;
+        }
+        #playerTwo{
+            display: none;
+            color: white;
+            padding: 10px 20px;
+            background-color: #2b2b2b;
+        }
+    }
+    #playerButton{
+        display: none;
+        margin: 55px;
+        a{
+            border: 1px solid black;
+            padding: 10px 15px;
+            text-decoration: none;
+            background-color: white;
+        }
+    }
 }
 
 .characters{

@@ -30,6 +30,31 @@ body {
   text-align: center;
   margin: 75px 0 45px 0;
 }
+#char-title #players {
+  width: 300px;
+  margin: 25px auto;
+}
+#char-title #players #playerOne {
+  color: white;
+  padding: 10px 20px;
+  background-color: #2b2b2b;
+}
+#char-title #players #playerTwo {
+  display: none;
+  color: white;
+  padding: 10px 20px;
+  background-color: #2b2b2b;
+}
+#char-title #playerButton {
+  display: none;
+  margin: 55px;
+}
+#char-title #playerButton a {
+  border: 1px solid black;
+  padding: 10px 15px;
+  text-decoration: none;
+  background-color: white;
+}
 
 .characters {
   display: grid;

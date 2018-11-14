@@ -30,12 +30,11 @@ function Characters(result){
         char_img.setAttribute('class', 'token')
         char_img.src="https://via.placeholder.com/150";
         // Add button.
-        char_button = document.createElement('a');
+        char_button = document.createElement('button');
         char_button.setAttribute('class', "[ selectBtn ]");
         char_button.setAttribute('id', result[i].aliases + 'button')
         char_button.type = "button";
         char_button.innerHTML = "Play as " + result[i].aliases;
-        char_button.href = "game.html";
         // Append everything
         char.appendChild(char_img);
         char.appendChild(char_title);
@@ -112,4 +111,23 @@ function selectHero(event){
     let heroButton = document.getElementById(event + 'button');
     hero[0].style.border = '5px solid green';
     heroButton.style.display = 'block';
+    // When the user clicks on a character button, check if player 1 or 2 has selected.
+    let playerOne = document.getElementById('playerOne');
+    let playerTwo = document.getElementById('playerTwo');
+    heroButton.onclick = function(){
+        if(playerOne.value == '0'){
+            playerOne.value = '1';
+            playerOne.innerHTML = "Player 1: " + event;
+            playerOne.style.display = 'inline-block';
+            playerTwo.style.display = 'inline-block';
+            console.log('Player 1 is playing as: ' + event);
+            return playerOne
+        } else if(playerTwo.value == '0'){
+            playerTwo.value = '1';
+            playerTwo.innerHTML = 'Player 2: ' + event;
+            console.log('Player 2 is playing as: ' + event);
+            document.getElementById('playerButton').style.display = 'block';
+            return playerTwo;
+        }
+    }
 }

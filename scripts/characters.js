@@ -92,7 +92,7 @@ document.body.addEventListener( 'click', function(event){
     }
 });
 
-// When a user clicks on a hero, remove the style of the other heroes
+// When a user clicks on a hero, remove the style and hide the button for the other characters
 function clearButtons(){
     let el = document.querySelectorAll('.char');
     for(let i = 0; i < el.length; i++){
@@ -115,18 +115,24 @@ function selectHero(event){
     let playerOne = document.getElementById('playerOne');
     let playerTwo = document.getElementById('playerTwo');
     heroButton.onclick = function(){
+        // CHeck if player 1 has chosen a character
         if(playerOne.value == '0'){
             playerOne.value = '1';
             playerOne.innerHTML = "Player 1: " + event;
             playerOne.style.display = 'inline-block';
             playerTwo.style.display = 'inline-block';
             console.log('Player 1 is playing as: ' + event);
+            // Store the character id in localstorage.
+            localStorage.setItem('Player 1', event);
             return playerOne
+            // Check if player 2 has chose a character
         } else if(playerTwo.value == '0'){
             playerTwo.value = '1';
             playerTwo.innerHTML = 'Player 2: ' + event;
             console.log('Player 2 is playing as: ' + event);
             document.getElementById('playerButton').style.display = 'block';
+            // Store the character id in localstorage.
+            localStorage.setItem('Player 2', event);           
             return playerTwo;
         }
     }

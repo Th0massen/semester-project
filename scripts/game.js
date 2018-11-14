@@ -91,18 +91,36 @@ function buildBoard(){
     ctx.stroke();
 }
 
-// Create player token
-function player(){
-    console.log('Placing the player(s)...');
-    console.log('Players not found.');
+// Create player 1 token
+function playerOne(){
+    console.log('Placing Player 1...');
+    var playerOne = localStorage.getItem('Player 1');
+    console.log('Player 1 is playing as: ' + playerOne);
+    ctx.beginPath();
+    ctx.fillRect(45, 5, 35, 35);
+}
+
+// Create player 2 token
+function playerTwo(){
+    console.log('Placing Player 2...');
+    var playerTwo = localStorage.getItem('Player 2');
+    console.log('Player 2 is playing as: ' + playerTwo);
+    ctx.beginPath();
+    ctx.fillRect(25, 50, 35, 35);
 }
 
 // Build game
 function init(){
     console.log('Initializing game...');
     buildBoard();
-    player();
+    playerOne();
+    playerTwo();
+    dice();
     console.log('Game ready.');
 }
 
 window.onload = init();
+
+function dice(){
+    
+}

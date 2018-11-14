@@ -3,7 +3,6 @@
 fetch('https://anapioficeandfire.com/api/characters')
     .then(result => result.json())
     .then((result) => { 
-        console.log(result);
         Characters(result); 
     })
     .catch(err => console.log(err))
@@ -45,6 +44,7 @@ function Characters(result){
         characters.appendChild(char);
     }
     container.appendChild(characters);
+    console.log('Please select a Character to continue.');
 };
 
 // Add event listener on document body to register user actions
@@ -93,7 +93,6 @@ document.body.addEventListener( 'click', function(event){
     }
 });
 
-
 // When a user clicks on a hero, remove the style of the other heroes
 function clearButtons(){
     let el = document.querySelectorAll('.char');
@@ -105,7 +104,6 @@ function clearButtons(){
         btn[j].style.display = 'none';
     }
 }
-
 
 // When a user clicks on a character, give it a border to highlight selected hero, and display button to contine.
 function selectHero(event){

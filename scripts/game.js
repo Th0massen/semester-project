@@ -117,10 +117,10 @@ function dice(){
     if(playerTurn == 1){
         DiceResult(playerTurn);
         console.log("Player 2's Turn");
-        playerTurn = playerTurn + 1;
+        playerTurn = playerTurn++;
     } else if(playerTurn == 2){
         DiceResult(playerTurn);
-        playerTurn = playerTurn -1;
+        playerTurn = playerTurn--;
         return playerTurn;
     }
 }
@@ -130,4 +130,46 @@ function DiceResult(playerTurn){
     // Gets a random number between 1 - 6
     var Score = Math.round( Math.random() * 5 ) + 1;
     console.log('Player ' + playerTurn + " rolled a " + Score);
+    Movement(Score, playerTurn);
 }
+
+function Movement(Score, playerTurn){
+    var goDown = false;
+    var goBack = false;
+    var newScore = 0;
+    for( var i = 0; i < Score; i++ ){
+        if( playerTurn == 1 ){
+            if( (goBack == false)  && (goDown == false) ){
+                if( player1X >= 825 ){
+                    goDown = true;
+                } else{
+                    player1X = player1X + 90;
+                }
+            }
+            else if( goDown == true ){
+                if( (player1Y >= 190)  && (player1X < 820) ){
+                    player1Y = 190;
+                    goDown = false;
+                    goBack = true;
+                    console.log( 'Go Back :' + goBack);
+                    console.log( 'Go Down :' + goDown);
+                    newScore = i;
+                }
+                else{
+                    player1Y = player1Y + 95;
+                }
+            } 
+            else if( goBack == true ){
+                if( player1X <= 0 ){
+                    player1X = 0;
+                    goBack = false;
+                    goDown = true;
+                    newScore = i;
+                } else{
+                    player1X = player1X - 90;
+                }
+            }
+        }
+    }
+}
+

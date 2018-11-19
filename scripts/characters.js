@@ -7,6 +7,20 @@ fetch('https://anapioficeandfire.com/api/characters')
     })
     .catch(err => console.log(err))
 
+// New apis to use :
+/* 
+https://anapioficeandfire.com/api/characters?name=Daenerys%20targaryen
+https://anapioficeandfire.com/api/characters?name=Jon%20Snow
+https://anapioficeandfire.com/api/characters?name=tyrion%20lannister
+https://anapioficeandfire.com/api/characters?name=joffrey%20baratheon
+https://anapioficeandfire.com/api/characters?name=petyr%20baelish
+https://anapioficeandfire.com/api/characters?name=sansa%20stark
+https://anapioficeandfire.com/api/characters?name=arya%20stark
+https://anapioficeandfire.com/api/characters?name=margaery%20tyrell
+https://anapioficeandfire.com/api/characters?name=cersei%20lannister
+https://anapioficeandfire.com/api/characters?name=jaime%20lannister
+*/
+
 // Function to handle recieved data
 function Characters(result){
     let container = document.getElementById("container");

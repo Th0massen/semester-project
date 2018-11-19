@@ -1,6 +1,7 @@
 
 // Global variables
-var PlayerScore = 1;
+var PlayerScore_1 = 1;
+var PlayerScore_2 = 1;
 var playerTurn = 1;
 
 // Set up container
@@ -93,10 +94,16 @@ function players(){
     var player1 = document.createElement('div');
     player1.setAttribute('class', 'Player');
     player1.setAttribute('id', 'playerOne');
+    // get data from localStorage, to see what characters are chosen.
+    var player1_Character = localStorage.getItem('Player 1');
+    console.log( "Player 1 : " + player1_Character);
     start.appendChild(player1);
     var player2 = document.createElement('div');
     player2.setAttribute('class', 'Player');
     player2.setAttribute('id', 'playerTwo');
+    // Player 2 character from localStorage
+    var player2_character = localStorage.getItem('Player 2');
+    console.log(  "Player 2 : " + player2_character);
     start.appendChild(player2);
 }
 
@@ -104,45 +111,48 @@ function dice(){
     var Score = Math.floor(Math.random() * 5) + 1;
     checkTurn(playerTurn);
     console.log('Score : ' + Score);
+    // Player 1 Controls
     if( playerTurn == 1 ){
-        if( PlayerScore > 36 ){
+        if( PlayerScore_1 > 36 ){
             console.log('Victory Player 1');
             document.getElementById('36').appendChild(document.getElementById('playerOne'));
-        } else if( PlayerScore == 36 ){
+        } else if( PlayerScore_1 == 36 ){
             console.log('Victory player 1');
             document.getElementById('36').appendChild(document.getElementById('playerOne'));
-        } else if( PlayerScore < 36 ){
+        } else if( PlayerScore_1 < 36 ){
             for( var i = 0; i < Score && i < 30; i++ ){
-                PlayerScore = PlayerScore + 1;
-                if( PlayerScore == 36 ){
-                    PlayerScore = 36;
+                PlayerScore_1 = PlayerScore_1 + 1;
+                if( PlayerScore_1 == 36 ){
+                    PlayerScore_1 = 36;
                     console.log('Victory P1');
-                    document.getElementById(PlayerScore).appendChild(document.getElementById('playerOne'));
+                    document.getElementById(PlayerScore_1).appendChild(document.getElementById('playerOne'));
                 }
-                document.getElementById(PlayerScore).appendChild(document.getElementById('playerOne'));
+                document.getElementById(PlayerScore_1).appendChild(document.getElementById('playerOne'));
             }
         }
+    // Player 2 Controls
     } else if( playerTurn == 2 ){
-        if( PlayerScore > 36 ){
+        if( PlayerScore_2 > 36 ){
             console.log('Victory Player 2');
             document.getElementById('36').appendChild(document.getElementById('playerTwo'));
-        } else if( PlayerScore == 36 ){
+        } else if( PlayerScore_2 == 36 ){
             console.log('Victory Player 2');
             document.getElementById('36').appendChild(document.getElementById('playerTwo'));
-        } else if( PlayerScore < 36 ){
-            for( var i = 0; i < Score && i < 30; i++ ){
-                PlayerScore = PlayerScore + 1;
-                if( PlayerScore == 36 ){
-                    PlayerScore = 36;
+        } else if( PlayerScore_2 < 36 ){
+            for( var j = 0; j < Score && j < 30; j++ ){
+                PlayerScore_2 = PlayerScore_2 + 1;
+                if( PlayerScore_2 == 36 ){
+                    PlayerScore_2 = 36;
                     console.log('Victory P2');
-                    document.getElementById(PlayerScore).appendChild(document.getElementById('playerOne'));
+                    document.getElementById(PlayerScore_2).appendChild(document.getElementById('playerTwo'));
                 }
-                document.getElementById(PlayerScore).appendChild(document.getElementById('playerTwo'));
+                document.getElementById(PlayerScore_2).appendChild(document.getElementById('playerTwo'));
             }
         }
     }
 }
 
+// Function to check whos turn it is
 function checkTurn(){
     if( playerTurn == 1 ){
         console.log('Player 1, Go!');

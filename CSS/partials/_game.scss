@@ -1,9 +1,74 @@
-
-#GameBoard{
-    width: 90%;
+body{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
 }
 
-#DiceButton{
-    margin: 15px;
-    padding: 5px 15px;
+#GameTitle{
+    margin: 25px;
+    color: white;
+}
+
+#GameInfo{
+    margin-top: 200px;
+    background-color: white;
+    text-align: left;
+    p{
+        display: inline-block;
+        margin-right: 250px;
+        margin-left: 50px;
+    }
+}
+
+#GameContainer{
+    text-align: center;
+}
+
+.Tile_X {
+    .Tile{
+        width: 70px;
+        height: 70px;
+        display: inline-block;
+        border: 1px solid black;
+    }
+}
+
+.Tile_Y {
+    margin: 0 90.5%;
+}
+
+.Tile_Y{ 
+    .Tile{
+        width: 70px;
+        height: 70px;
+        display: inline-block;
+        border: 1px solid black;
+    }
+}
+
+.Tile_Y_reversed{
+    margin: 0 4px;
+    .Tile{
+        width: 70px;
+        height: 70px;
+        display: block;
+        border: 1px solid black;
+    }
+}
+
+#playerOne{
+    width: 35px;
+    height: 35px;
+    margin: -35px auto;
+    border: 5px solid rgb(0, 102, 255);
+}
+
+#playerTwo{
+    width: 35px;
+    height: 35px;
+    margin: -35px auto;
+    border: 5px solid rgb(17, 150, 5);
 }

@@ -18,7 +18,7 @@ https://anapioficeandfire.com/api/characters?name=sansa%20stark
 https://anapioficeandfire.com/api/characters?name=arya%20stark
 https://anapioficeandfire.com/api/characters?name=margaery%20tyrell
 https://anapioficeandfire.com/api/characters?name=cersei%20lannister
-https://anapioficeandfire.com/api/characters?name=jaime%20lannister
+https://anapioficeandfire.com/api/characters?name=brienne%20of%20tarth
 */
 
 // Function to handle recieved data

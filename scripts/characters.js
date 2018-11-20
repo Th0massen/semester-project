@@ -1,11 +1,27 @@
 
-// Retrieve data from the api
-fetch('https://anapioficeandfire.com/api/characters')
-    .then(result => result.json())
-    .then((result) => { 
-        Characters(result); 
-    })
-    .catch(err => console.log(err))
+var api = [ 
+    'https://anapioficeandfire.com/api/characters/271/',
+    'https://anapioficeandfire.com/api/characters/583/',
+    'https://anapioficeandfire.com/api/characters/1052/',
+    'https://anapioficeandfire.com/api/characters/565/',
+    'https://anapioficeandfire.com/api/characters/823/',
+    'https://anapioficeandfire.com/api/characters/957/',
+    'https://anapioficeandfire.com/api/characters/148/',
+    'https://anapioficeandfire.com/api/characters/16/',
+    'https://anapioficeandfire.com/api/characters/238/',
+    'https://anapioficeandfire.com/api/characters/216/',
+];
+
+Promise.all( api.map ( url =>
+    fetch( url )
+    .then( response => response.json())
+))
+    .then(result => {
+        console.log(result);
+        Characters(result);
+    }
+)
+.catch(err => console.log(err))
 
 // New apis to use :
 /* 
@@ -29,15 +45,14 @@ function Characters(result){
     // Create the characters
     for(let i = 0; i < result.length; i++){
         let char = document.createElement('div');
-        //char.setAttribute('class', '[ '+ result[i].aliases +' ]' + '[ char ]' );
-        char.setAttribute('class', '[ char ]'+'[ ' + result[i].aliases + ' ]');
-        char.setAttribute('id', result[i].aliases);
+        char.setAttribute('class', '[ char ]'+'[ ' + result[i].name + ' ]');
+        char.setAttribute('id', result[i].name);
         // Character info
         let char_title = document.createElement('h2');
-        char_title.setAttribute('id', result[i].aliases + '_title');
-        char_title.innerHTML = result[i].aliases;
+        char_title.setAttribute('id', result[i].name + '_title');
+        char_title.innerHTML = result[i].name;
         let char_gender = document.createElement('p');
-        char_gender.setAttribute('id', result[i].aliases + '_info');
+        char_gender.setAttribute('id', result[i].name + '_info');
         char_gender.innerHTML = result[i].gender;
         // Add player tokens.
         char_img = document.createElement('img');
@@ -46,9 +61,9 @@ function Characters(result){
         // Add button.
         char_button = document.createElement('button');
         char_button.setAttribute('class', "[ selectBtn ]");
-        char_button.setAttribute('id', result[i].aliases + 'button')
+        char_button.setAttribute('id', result[i].name + 'button')
         char_button.type = "button";
-        char_button.innerHTML = "Play as " + result[i].aliases;
+        char_button.innerHTML = "Play as " + result[i].name;
         // Append everything
         char.appendChild(char_img);
         char.appendChild(char_title);
@@ -57,49 +72,49 @@ function Characters(result){
         characters.appendChild(char);
     }
     container.appendChild(characters);
-    console.log('Please select a Character to continue.');
+    console.log('Please select a Character to continue.')
 };
 
 // Add event listener on document body to register user actions
 document.body.addEventListener( 'click', function(event){ 
     switch(event = event.target.id){
-        case 'The Daughter of the Dusk':
+        case 'Daenerys Targaryen':
             clearButtons();
             selectHero(event);
             break;
-        case 'Hodor':
+        case 'Jon Snow':
             clearButtons();
             selectHero(event);
             break;
-        case 'Lamprey':
+        case 'Tyrion Lannister':
             clearButtons();
             selectHero(event);
             break;  
-        case 'The Merling Queen':
+        case 'Joffrey Baratheon':
             clearButtons();
             selectHero(event);
             break;
-        case 'Old Crackbones':
+        case 'Petyr Baelish':
             clearButtons();
             selectHero(event);
             break;  
-        case 'The Poetess':
+        case 'Sansa Stark':
             clearButtons();
             selectHero(event);
             break;  
-        case 'Porridge':
+        case 'Arya Stark':
             clearButtons();
             selectHero(event);
             break;  
-        case 'Quickfinger':
+        case 'Margaery Tyrell':
             clearButtons();
             selectHero(event);
             break;
-        case "the Sailor's Wife":
+        case "Cersei Lannister":
             clearButtons();
             selectHero(event);
             break; 
-        case 'The Veiled Lady':
+        case 'Brienne of Tarth':
             clearButtons();
             selectHero(event);
             break;     
@@ -126,8 +141,8 @@ function selectHero(event){
     hero[0].style.border = '5px solid green';
     heroButton.style.display = 'block';
     // When the user clicks on a character button, check if player 1 or 2 has selected.
-    let playerOne = document.getElementById('playerOne');
-    let playerTwo = document.getElementById('playerTwo');
+    let playerOne = document.getElementById('playerOneChar');
+    let playerTwo = document.getElementById('playerTwoChar');
     heroButton.onclick = function(){
         // CHeck if player 1 has chosen a character
         if(playerOne.value == '0'){

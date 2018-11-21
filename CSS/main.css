@@ -81,7 +81,9 @@ body {
 .characters .char .token {
   margin: 10px;
   border: 2px solid #2b2b2b;
-  border-radius: 35px;
+  border-radius: 100px;
+  width: 150px;
+  height: 150px;
   display: block;
   margin: 5px auto;
 }
@@ -114,6 +116,10 @@ body {
 }
 #GameInfo #GameTitle {
   text-align: center;
+}
+#GameInfo #DiceScore {
+  border: 1px solid black;
+  padding: 15px;
 }
 
 .Tile_X .Tile {

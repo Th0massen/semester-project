@@ -1,5 +1,5 @@
 
-document.body.style.zoom=1.0;
+document.body.style.zoom=0.9;
 
 
 // Global variables
@@ -155,17 +155,21 @@ function buildBoard(){
 function players(){
     var start = document.getElementById('1');
     var player1 = document.createElement('div');
+    let playerOneCharInfo = document.getElementById('player1Char');
     player1.setAttribute('class', 'Player');
     player1.setAttribute('id', 'playerOne');
     // get data from localStorage, to see what characters are chosen.
     var player1_Character = localStorage.getItem('Player 1');
+    playerOneCharInfo.innerHTML = player1_Character;
     console.log( "Player 1 : " + player1_Character);
     start.appendChild(player1);
     var player2 = document.createElement('div');
+    let playerTwoCharInfo = document.getElementById('player2Char');
     player2.setAttribute('class', 'Player');
     player2.setAttribute('id', 'playerTwo');
     // Player 2 character from localStorage
     var player2_character = localStorage.getItem('Player 2');
+    playerTwoCharInfo.innerHTML = player2_character;
     console.log(  "Player 2 : " + player2_character);
     start.appendChild(player2);
 }
@@ -177,9 +181,9 @@ function dice(){
     var Score = Math.floor(Math.random() * 5) + 1;
     console.log('-----');
     console.log('Player ' + playerTurn + " advanced " + Score + " tiles.");
-    
     // Player 1 Controls
     if( playerTurn == 1 ){
+        document.getElementById('DiceScore').innerHTML = "Player 1 rolled: " + Score;
         if( PlayerScore_1 > 60 ){
             console.log('Victory Player 1');
             document.getElementById('60').appendChild(document.getElementById('playerOne'));
@@ -203,6 +207,7 @@ function dice(){
 
     // Player 2 Controls
     } else if( playerTurn == 2 ){
+        document.getElementById('DiceScore').innerHTML = "Player 2 rolled: " + Score;
         if( PlayerScore_2 > 60 ){
             console.log('Victory Player 2');
             document.getElementById('60').appendChild(document.getElementById('playerTwo'));
@@ -251,10 +256,21 @@ function checkTraps(player){
         document.getElementById('1').appendChild(player);
         if( playerTurn == 1 ){
             tile = 1;
-            PlayerScore_1 = 1;
+            PlayerScore_1 = tile;
         } else if( playerTurn == 2 ){
             tile = 1;
-            PlayerScore_2 = 1;
+            PlayerScore_2 = tile;
+        }
+    }
+    if( tile == 20 ){
+        alert("Rip " + target + " You ded");
+        document.getElementById('5').appendChild(player);
+        if( playerTurn == 1 ){
+            tile = 5;
+            PlayerScore_1 = tile;
+        } else if( playerTurn == 2 ){
+            tile = 5;
+            PlayerScore_2 = tile;
         }
     }
     if( tile == 35 ){
@@ -265,7 +281,7 @@ function checkTraps(player){
             PlayerScore_1 = tile;
         } else if( playerTurn == 2 ){
             tile = 30;
-            PlayerScore_2 = 30;
+            PlayerScore_2 = tile;
         }
     }
     if( tile == 44 ){
@@ -276,7 +292,7 @@ function checkTraps(player){
             PlayerScore_1 = tile;
         } else if( playerTurn == 2 ){
             tile = 34;
-            PlayerScore_2 = 34;
+            PlayerScore_2 = tile;
         }
     }
     if( tile == 46 ){
@@ -290,7 +306,7 @@ function checkTraps(player){
             PlayerScore_2 = tile;
         }
     }
-    if( tile == 55 ){
+    if( tile == 53 ){
         alert("Rip " + target + " You ded");
         document.getElementById('30').appendChild(player);
         if( playerTurn == 1 ){
@@ -298,7 +314,18 @@ function checkTraps(player){
             PlayerScore_1 = tile;
         } else if( playerTurn == 2 ){
             tile = 30;
-            PlayerScore_2 = 30;
+            PlayerScore_2 = tile;
+        }
+    }
+    if( tile == 59 ){
+        alert("Rip " + target + " You ded");
+        document.getElementById('1').appendChild(player);
+        if( playerTurn == 1 ){
+            tile = 1;
+            PlayerScore_1 = tile;
+        } else if( playerTurn == 2 ){
+            tile = 1;
+            PlayerScore_2 = tile;
         }
     }
 }

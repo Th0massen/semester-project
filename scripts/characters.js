@@ -23,21 +23,9 @@ Promise.all( api.map ( url =>
 )
 .catch(err => console.log(err))
 
-// New apis to use :
-/* 
-https://anapioficeandfire.com/api/characters?name=Daenerys%20targaryen
-https://anapioficeandfire.com/api/characters?name=Jon%20Snow
-https://anapioficeandfire.com/api/characters?name=tyrion%20lannister
-https://anapioficeandfire.com/api/characters?name=joffrey%20baratheon
-https://anapioficeandfire.com/api/characters?name=petyr%20baelish
-https://anapioficeandfire.com/api/characters?name=sansa%20stark
-https://anapioficeandfire.com/api/characters?name=arya%20stark
-https://anapioficeandfire.com/api/characters?name=margaery%20tyrell
-https://anapioficeandfire.com/api/characters?name=cersei%20lannister
-https://anapioficeandfire.com/api/characters?name=brienne%20of%20tarth
-*/
 
 // Function to handle recieved data
+
 function Characters(result){
     let container = document.getElementById("container");
     let characters = document.createElement("div");
@@ -57,7 +45,7 @@ function Characters(result){
         // Add player tokens.
         char_img = document.createElement('img');
         char_img.setAttribute('class', 'token')
-        char_img.src="https://via.placeholder.com/150";
+        char_img.src = "../resources/characters/" + result[i].name + ".svg";
         // Add button.
         char_button = document.createElement('button');
         char_button.setAttribute('class', "[ selectBtn ]");

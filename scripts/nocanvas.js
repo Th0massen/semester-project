@@ -1,25 +1,35 @@
 
+document.body.style.zoom=1.0;
+
+
 // Global variables
+
 var PlayerScore_1 = 1;
 var PlayerScore_2 = 1;
 var playerTurn = 1;
 
+
 // Set up container
+
 var container = document.getElementById('GameContainer');
     container.style.border = "1px solid black";
     container.style.display = "block";
     container.style.background = "white";
     container.style.width = "950px";
-    container.style.margin = "50px auto";
+    //container.style.margin = "50px auto";
     container.style.padding = "70px";
 
+
 // Render the game objects
+
 function renderGame(){
     buildBoard();
     players();
 }
 
+
 // Render game board
+
 function buildBoard(){
     // Containers for when the board is going forward
     var tileX = document.createElement('div');
@@ -139,9 +149,11 @@ function buildBoard(){
     }
 }
 
+
 // Player objects
+
 function players(){
-    var start = document.getElementById(1);
+    var start = document.getElementById('1');
     var player1 = document.createElement('div');
     player1.setAttribute('class', 'Player');
     player1.setAttribute('id', 'playerOne');
@@ -158,10 +170,14 @@ function players(){
     start.appendChild(player2);
 }
 
+
+// Dice function that checks whos turn it is
+
 function dice(){
     var Score = Math.floor(Math.random() * 5) + 1;
     console.log('-----');
     console.log('Player ' + playerTurn + " advanced " + Score + " tiles.");
+    
     // Player 1 Controls
     if( playerTurn == 1 ){
         if( PlayerScore_1 > 60 ){
@@ -181,7 +197,10 @@ function dice(){
                 document.getElementById(PlayerScore_1).appendChild(document.getElementById('playerOne'));
             }
         }
+        let player = 'Player 1';
+        checkTraps(player);
         playerTurn = playerTurn + 1;
+
     // Player 2 Controls
     } else if( playerTurn == 2 ){
         if( PlayerScore_2 > 60 ){
@@ -201,8 +220,88 @@ function dice(){
                 document.getElementById(PlayerScore_2).appendChild(document.getElementById('playerTwo'));
             }
         }
+        let player = 'Player 2'
+        checkTraps(player);
         playerTurn = playerTurn - 1;
     }
 }
+
+
+// Function to add traps and check if a player landed on them
+
+function checkTraps(player){
+    // variables to make it easier to code
+    console.log('check traps '+player);
+    let tile;
+    let target;
+    if( player == 'Player 1' ){
+        tile = PlayerScore_1;
+        target = 'Player 1'
+        player = document.getElementById('playerOne');
+    } else{
+        tile = PlayerScore_2;
+        target = 'Player 2';
+        player = document.getElementById('playerTwo');
+    }
+    player.scrollIntoView({behavior: "smooth", block: "center", inline: "center"});
+    console.log( player);
+    // Traps
+    if( tile == 11 ){
+        alert("Rip " + target + " You ded");
+        document.getElementById('1').appendChild(player);
+        if( playerTurn == 1 ){
+            tile = 1;
+            PlayerScore_1 = 1;
+        } else if( playerTurn == 2 ){
+            tile = 1;
+            PlayerScore_2 = 1;
+        }
+    }
+    if( tile == 35 ){
+        alert("Rip " + target + " You ded");
+        document.getElementById('30').appendChild(player);
+        if( playerTurn == 1 ){
+            tile = 30;
+            PlayerScore_1 = tile;
+        } else if( playerTurn == 2 ){
+            tile = 30;
+            PlayerScore_2 = 30;
+        }
+    }
+    if( tile == 44 ){
+        alert("Rip " + target + " You ded");
+        document.getElementById('34').appendChild(player);
+        if( playerTurn == 1 ){
+            tile = 34;
+            PlayerScore_1 = tile;
+        } else if( playerTurn == 2 ){
+            tile = 34;
+            PlayerScore_2 = 34;
+        }
+    }
+    if( tile == 46 ){
+        alert("Rip " + target + " You ded");
+        document.getElementById('40').appendChild(player);
+        if( playerTurn == 1 ){
+            tile = 40;
+            PlayerScore_1 = tile;
+        } else if( playerTurn == 2 ){
+            tile = 40;
+            PlayerScore_2 = tile;
+        }
+    }
+    if( tile == 55 ){
+        alert("Rip " + target + " You ded");
+        document.getElementById('30').appendChild(player);
+        if( playerTurn == 1 ){
+            tile = 30;
+            PlayerScore_1 = tile;
+        } else if( playerTurn == 2 ){
+            tile = 30;
+            PlayerScore_2 = 30;
+        }
+    }
+}
+
 
 window.onload = renderGame();

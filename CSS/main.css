@@ -99,21 +99,21 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
-  display: grid;
-  grid-template-columns: 200px 1fr;
+}
+
+#GameContainer {
+  margin-left: 23%;
 }
 
 #GameInfo {
+  position: fixed;
   background-color: white;
-  text-align: left;
+  text-align: center;
+  border: 1px solid black;
+  padding: 50px;
 }
 #GameInfo #GameTitle {
   text-align: center;
-}
-#GameInfo p {
-  display: inline-block;
-  margin-right: 250px;
-  margin-left: 50px;
 }
 
 .Tile_X .Tile {
@@ -124,7 +124,7 @@ body {
 }
 
 .Tile_Y {
-  margin: 0 68.2%;
+  margin: 0 68.6%;
 }
 
 .Tile_Y .Tile {
@@ -135,7 +135,7 @@ body {
 }
 
 .Tile_Y_2 {
-  margin: 0 91%;
+  margin: 0 91.5%;
 }
 .Tile_Y_2 .Tile {
   width: 70px;

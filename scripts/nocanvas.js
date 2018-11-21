@@ -1,5 +1,5 @@
 
-document.body.style.zoom=0.9;
+document.body.style.zoom = "90%";
 
 
 // Global variables

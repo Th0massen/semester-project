@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="../CSS/main.css">
 </head>
 <body id="game">
+    <!-- Game info on the side of the screen -->
     <div id="GameInfo">
         <div id="GameTitle">
             <h1>Game of Boards</h1>
@@ -20,7 +21,24 @@
             <p>Player 2: <span id="player2Char"></span></p>
         </div>
     </div>
+    <!-- The game -->
     <div id="GameContainer">
+    </div>
+    <!-- Trap info modal -->
+    <div id="trapModal" class="modal">
+        <div class="modal-content">
+            <p><span id="trapPlayer"></span><span id="trapText"></span></p>
+            <span id="closeTrapModal">Continue</span>
+        </div>  
+    </div>
+    <!-- Victory modal -->
+    <div id="winModal" class="modal">
+        <div class="modal-content">
+            <h2>Congratulations <span id="gz"></span></h2>
+            <p><span id="winPlayer"></span> is now sitting on the Iron Throne.</p>
+            <p>Long live the new ruler of Westeros.</p>
+            <span id="winnerBtn">End game</span>
+        </div>  
     </div>
     <script src="../scripts/nocanvas.js"></script>
 </body>

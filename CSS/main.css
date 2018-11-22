@@ -61,6 +61,12 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
 }
+.characters .titles {
+  text-align: center;
+  width: 80%;
+  padding: 25px;
+  margin: 10px;
+}
 .characters .char {
   border: 1px solid black;
   margin: 25px;
@@ -91,8 +97,12 @@ body {
   width: 50%;
   margin-top: 25px;
 }
-.characters .char p {
-  width: 30%;
+
+.charTitle {
+  display: none;
+  width: 80%;
+  margin: 15px;
+  text-align: center;
 }
 
 #game {
@@ -130,7 +140,7 @@ body {
 }
 
 .Tile_Y {
-  margin: 0 68.6%;
+  margin: 0 68.2%;
 }
 
 .Tile_Y .Tile {
@@ -141,7 +151,7 @@ body {
 }
 
 .Tile_Y_2 {
-  margin: 0 91.5%;
+  margin: 0 91.2%;
 }
 .Tile_Y_2 .Tile {
   width: 70px;

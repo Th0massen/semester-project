@@ -33,6 +33,12 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 10px;
+    .titles{
+        text-align: center;
+        width: 80%;
+        padding: 25px;
+        margin: 10px;
+    }
     .char{
         border: 1px solid black;
         margin: 25px;
@@ -62,8 +68,12 @@
             width: 50%;
             margin-top: 25px;
         }
-        p{
-            width: 30%;
-        }
     }
+}
+
+.charTitle{
+    display: none;
+    width: 80%;
+    margin: 15px;
+    text-align: center;
 }

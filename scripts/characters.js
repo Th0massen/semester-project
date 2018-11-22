@@ -1,6 +1,6 @@
 
 var api = [ 
-    'https://anapioficeandfire.com/api/characters/271/',
+    'https://anapioficeandfire.com/api/characters/1303/',
     'https://anapioficeandfire.com/api/characters/583/',
     'https://anapioficeandfire.com/api/characters/1052/',
     'https://anapioficeandfire.com/api/characters/565/',
@@ -36,9 +36,20 @@ function Characters(result){
         char.setAttribute('class', '[ char ]'+'[ ' + result[i].name + ' ]');
         char.setAttribute('id', result[i].name);
         // Character info
-        let char_title = document.createElement('h2');
-        char_title.setAttribute('id', result[i].name + '_title');
-        char_title.innerHTML = result[i].name;
+        let char_name = document.createElement('h2');
+        char_name.setAttribute('id', result[i].name + '_title');
+        char_name.innerHTML = result[i].name;
+        let char_title = document.createElement('div');
+        char_title.setAttribute('id', result[i].name + '_text');
+        char_title.setAttribute('class', 'charTitle');
+
+        for( var j = 0; j < result[i].titles.length; j++ ){
+            console.log(result[i].titles[j]);
+            char_title_text = document.createElement('p');
+            char_title_text.innerHTML = result[i].titles[j];
+            char_title.appendChild(char_title_text);
+        }
+        
         let char_gender = document.createElement('p');
         char_gender.setAttribute('id', result[i].name + '_info');
         char_gender.innerHTML = result[i].gender;
@@ -54,6 +65,7 @@ function Characters(result){
         char_button.innerHTML = "Play as " + result[i].name;
         // Append everything
         char.appendChild(char_img);
+        char.appendChild(char_name);
         char.appendChild(char_title);
         char.appendChild(char_gender);
         char.appendChild(char_button);
@@ -119,6 +131,10 @@ function clearButtons(){
     for(let j = 0; j < btn.length; j++ ){
         btn[j].style.display = 'none';
     }
+    let text = document.querySelectorAll('.charTitle');
+    for(let k = 0; k < text.length; k++){
+        text[k].style.display = 'none';
+    }
 }
 
 // When a user clicks on a character, give it a border to highlight selected hero, and display button to contine.
@@ -128,6 +144,7 @@ function selectHero(event){
     let heroButton = document.getElementById(event + 'button');
     hero[0].style.border = '5px solid green';
     heroButton.style.display = 'block';
+    document.getElementById(event + '_text').style.display = "block";
     // When the user clicks on a character button, check if player 1 or 2 has selected.
     let playerOne = document.getElementById('playerOneChar');
     let playerTwo = document.getElementById('playerTwoChar');

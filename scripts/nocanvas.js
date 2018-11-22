@@ -1,6 +1,6 @@
 
+// Initial site zoom
 document.body.style.zoom = "90%";
-
 
 // Global variables
 
@@ -323,7 +323,7 @@ function checkTraps(player){
     console.log( player);
 
     // Traps
-    
+
     if( tile == 11 ){
         trapModal.style.display = 'block';
         trappedPlayer.innerHTML = character;

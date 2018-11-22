@@ -153,27 +153,62 @@ function buildBoard(){
 // Player objects
 
 function players(){
+    // Player 1
+    let storageKey = "Player 1";
+    let imageSrc = returnPlayerImg(storageKey);
     var start = document.getElementById('1');
     var player1 = document.createElement('div');
     let playerOneCharInfo = document.getElementById('player1Char');
     player1.setAttribute('class', 'Player');
     player1.setAttribute('id', 'playerOne');
+    player1.style.backgroundImage = "url('" + imageSrc + "')";
     // get data from localStorage, to see what characters are chosen.
-    var player1_Character = localStorage.getItem('Player 1');
+    let player1_Character = localStorage.getItem('Player 1');
     playerOneCharInfo.innerHTML = player1_Character;
     console.log( "Player 1 : " + player1_Character);
     start.appendChild(player1);
+
+    // Player 2
+    storageKey = "Player 2";
+    imageSrc = returnPlayerImg(storageKey);
     var player2 = document.createElement('div');
     let playerTwoCharInfo = document.getElementById('player2Char');
     player2.setAttribute('class', 'Player');
     player2.setAttribute('id', 'playerTwo');
+    player2.style.backgroundImage = "url('" + imageSrc + "')";
     // Player 2 character from localStorage
-    var player2_character = localStorage.getItem('Player 2');
+    let player2_character = localStorage.getItem('Player 2');
     playerTwoCharInfo.innerHTML = player2_character;
     console.log(  "Player 2 : " + player2_character);
     start.appendChild(player2);
 }
 
+
+// Find the correct character icons
+function returnPlayerImg(storageKey){
+    switch(localStorage.getItem(storageKey)){
+        case 'Daenerys Targaryen':
+            return '../resources/characters/Daenerys Targaryen.svg';
+        case 'Jon Snow':
+            return '../resources/characters/Jon Snow.svg';
+        case 'Tyrion Lannister':
+            return '../resources/characters/Tyrion Lannister.svg';
+        case 'Joffrey Baratheon':
+            return '../resources/characters/Joffrey Baratheon.svg';
+        case 'Petyr Baelish':
+            return '../resources/characters/Petyr Baelish.svg';
+        case 'Sansa Stark':
+            return '../resources/characters/Sansa Stark.svg';
+        case 'Arya Stark':
+            return '../resources/characters/Arya Stark.svg';
+        case 'Margaery Tyrell':
+            return '../resources/characters/Margaery Tyrell.svg';
+        case 'Cersei Lannister':
+            return '../resources/characters/Cersei Lannister.svg';
+        case 'Brienne of Tarth' :
+            return '../resources/characters/Brienne of Tarth.svg';
+    }
+}
 
 // Dice function that checks whos turn it is
 

@@ -161,7 +161,7 @@ body {
   height: 50px;
   margin: -50px auto;
   border: 5px solid #0066ff;
-  border-radius: 15px;
+  border-radius: 100px;
 }
 
 #playerTwo {
@@ -169,7 +169,7 @@ body {
   height: 50px;
   margin: -50px auto;
   border: 5px solid #119605;
-  border-radius: 15px;
+  border-radius: 100px;
 }
 
 /*# sourceMappingURL=main.css.map */

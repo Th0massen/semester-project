@@ -39,6 +39,7 @@ function Characters(result){
         let char_name = document.createElement('h2');
         char_name.setAttribute('id', result[i].name + '_title');
         char_name.innerHTML = result[i].name;
+        /*
         let char_title = document.createElement('div');
         char_title.setAttribute('id', result[i].name + '_text');
         char_title.setAttribute('class', 'charTitle');
@@ -49,7 +50,7 @@ function Characters(result){
             char_title_text.innerHTML = result[i].titles[j];
             char_title.appendChild(char_title_text);
         }
-        
+        */
         let char_gender = document.createElement('p');
         char_gender.setAttribute('id', result[i].name + '_info');
         char_gender.innerHTML = result[i].gender;
@@ -66,7 +67,7 @@ function Characters(result){
         // Append everything
         char.appendChild(char_img);
         char.appendChild(char_name);
-        char.appendChild(char_title);
+        //char.appendChild(char_title);
         char.appendChild(char_gender);
         char.appendChild(char_button);
         characters.appendChild(char);
@@ -158,6 +159,8 @@ function selectHero(event){
             console.log('Player 1 is playing as: ' + event);
             // Store the character id in localstorage.
             localStorage.setItem('Player 1', event);
+            window.scrollTo(0, 0);
+            clearButtons();
             return playerOne
             // Check if player 2 has chose a character
         } else if(playerTwo.value == '0'){
@@ -166,7 +169,9 @@ function selectHero(event){
             console.log('Player 2 is playing as: ' + event);
             document.getElementById('playerButton').style.display = 'block';
             // Store the character id in localstorage.
-            localStorage.setItem('Player 2', event);           
+            localStorage.setItem('Player 2', event);
+            window.scrollTo(0, 0);   
+            clearButtons();        
             return playerTwo;
         }
     }

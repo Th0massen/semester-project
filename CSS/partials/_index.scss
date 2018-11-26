@@ -1,4 +1,20 @@
 
+#landingPage{
+    background-image: url(../../resources/landingBG.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*
+#LandingPageContent{
+    border: 1px solid black;
+    padding: 15px;
+    background-color: grey;
+    width: 25%;
+    margin: 20px auto;
+}
+*/
 .logo{
     width: 100%;
     margin-top: 100px;
@@ -8,15 +24,23 @@
     }
     .title{
         text-align: center;
+        font-size: 25px;
+        margin: 15px;
+        font-family: 'Cinzel Decorative', cursive;
     }
 }
 
 .playBtn{
-    margin-top: 100px;
+    margin-top: 150px;
     text-align: center;
+    padding-bottom: 20px;
     a {
         border: 1px solid black;
-        padding: 10px 35px;
-        background-color: white;
+        background-color: #2b2b2b;
+        color: white;
+        padding: 10px 55px;
+        font-family: 'Cinzel Decorative', cursive;
+        font-size: 18px;
+        box-shadow:  0 10px 10px 0 black;
     }
 }

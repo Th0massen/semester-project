@@ -1,14 +1,24 @@
 
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Cinzel+Decorative');
+
 #game{
     margin: 0;
     padding: 0;
+    background-image: url(../../resources/landingBG.jpg);
+    background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: bottom;
 }
 
 #GameContainer{
-    margin-left: 23%;
+    margin-left: 30%;
+    margin-top: 50px;
+    font-family: 'Cinzel Decorative', cursive;
+    background-image: url(../../resources/testmap.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
     //margin-bottom: 50px;
 }
 
@@ -17,6 +27,7 @@
     background-color: white;
     text-align: center;
     border: 1px solid black;
+    height: 900px;
     padding: 50px;
     #GameTitle{
         text-align: center;
@@ -33,6 +44,8 @@
         height: 70px;
         display: inline-block;
         border: 1px solid black;
+        text-align: center;
+        //background-color: white;
     }
 }
 
@@ -46,15 +59,17 @@
         height: 70px;
         display: inline-block;
         border: 1px solid black;
+        text-align: center;
     }
 }
 
 .Tile_Y_2{ 
-    margin: 0 91.2%;
+    margin: 0 90.9%;
     .Tile{
         width: 70px;
         height: 70px;
         border: 1px solid black;
+        text-align: center;
     }
 }
 
@@ -64,6 +79,7 @@
         height: 70px;
         display: block;
         border: 1px solid black;
+        text-align: center;
     }
 }
 

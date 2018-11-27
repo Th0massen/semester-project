@@ -14,7 +14,7 @@ var playerTurn = 1;
 var container = document.getElementById('GameContainer');
     container.style.border = "1px solid black";
     container.style.display = "block";
-    container.style.background = "white";
+    //container.style.background = "white";
     container.style.width = "950px";
     //container.style.margin = "50px auto";
     container.style.padding = "70px";
@@ -238,6 +238,7 @@ function dice(){
             gratz.innerHTML = "Player 1";
         } else if( PlayerScore_1 < 60 ){
             for( var i = 0; i < Score && i < 60; i++ ){
+                // timeout function to make the player move one tile at a time
                 setTimeout(function(){
                     PlayerScore_1 = PlayerScore_1 + 1;
                     document.getElementById(PlayerScore_1).appendChild(document.getElementById('playerOne'));

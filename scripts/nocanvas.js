@@ -107,7 +107,7 @@ function buildBoard(){
         container.appendChild(tileX_3);
     }
     // Go Down
-    for( let i = 36; i < 38; i++ ){
+    for( let i = 37; i < 39; i++ ){
         let tile = document.createElement('div');
         tile.setAttribute('class', 'Tile');
         tile.setAttribute('id', i);
@@ -117,7 +117,7 @@ function buildBoard(){
         colY_3.appendChild(tile);
         container.appendChild(colY_3);
     }
-    for( let j = 50; j >= 38; j-- ){
+    for( let j = 51; j >= 39; j-- ){
         let tile = document.createElement('div');
         tile.setAttribute('class', 'Tile');
         tile.setAttribute('id', j);
@@ -127,7 +127,7 @@ function buildBoard(){
         tileX_4.appendChild(tile);
         container.appendChild(tileX_4);
     }
-    for( let i = 51; i < 52; i++ ){
+    for( let i = 52; i < 54; i++ ){
         let tile = document.createElement('div');
         tile.setAttribute('class', 'Tile');
         tile.setAttribute('id', i);
@@ -137,7 +137,7 @@ function buildBoard(){
         colY_4.appendChild(tile);
         container.appendChild(colY_4);
     }
-    for(let i = 52; i <= 60; i++){
+    for(let i = 54; i <= 65; i++){
         let tile = document.createElement('div');
         let tileText = document.createElement('p');
         tile.setAttribute('class', 'Tile');
@@ -238,7 +238,10 @@ function dice(){
             gratz.innerHTML = "Player 1";
         } else if( PlayerScore_1 < 60 ){
             for( var i = 0; i < Score && i < 60; i++ ){
-                PlayerScore_1 = PlayerScore_1 + 1;
+                setTimeout(function(){
+                    PlayerScore_1 = PlayerScore_1 + 1;
+                    document.getElementById(PlayerScore_1).appendChild(document.getElementById('playerOne'));
+                }, 500*(i+1))
                 if( PlayerScore_1 == 60 ){
                     PlayerScore_1 = 60;
                     console.log('Victory P1');
@@ -246,12 +249,12 @@ function dice(){
                     winnerModal.style.display = 'block';
                     winner.innerHTML = localStorage.getItem('Player 1');
                     gratz.innerHTML = "Player 1";
+                } else{
+                    let player = 'Player 1';
+                    checkTraps(player);
                 }
-                document.getElementById(PlayerScore_1).appendChild(document.getElementById('playerOne'));
             }
         }
-        let player = 'Player 1';
-        checkTraps(player);
         playerTurn = playerTurn + 1;
 
     // Player 2 Controls
@@ -273,7 +276,10 @@ function dice(){
             gratz.innerHTML = "Player 2";
         } else if( PlayerScore_2 < 60 ){
             for( var j = 0; j < Score && j < 60; j++ ){
-                PlayerScore_2 = PlayerScore_2 + 1;
+                setTimeout(function(){
+                    PlayerScore_2 = PlayerScore_2 + 1;
+                    document.getElementById(PlayerScore_2).appendChild(document.getElementById('playerTwo'));
+                }, 500*(j+1))
                 if( PlayerScore_2 == 60 ){
                     PlayerScore_2 = 60;
                     console.log('Victory P2');
@@ -281,12 +287,13 @@ function dice(){
                     winnerModal.style.display = 'block';
                     winner.innerHTML = localStorage.getItem('Player 2');
                     gratz.innerHTML = "Player 2";
+                } else{
+                    let player = 'Player 2'
+                    checkTraps(player);
                 }
                 document.getElementById(PlayerScore_2).appendChild(document.getElementById('playerTwo'));
             }
         }
-        let player = 'Player 2'
-        checkTraps(player);
         playerTurn = playerTurn - 1;
     }
 }

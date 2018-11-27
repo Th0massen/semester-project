@@ -132,10 +132,11 @@ function clearButtons(){
     for(let j = 0; j < btn.length; j++ ){
         btn[j].style.display = 'none';
     }
+    /*
     let text = document.querySelectorAll('.charTitle');
     for(let k = 0; k < text.length; k++){
         text[k].style.display = 'none';
-    }
+    }*/
 }
 
 // When a user clicks on a character, give it a border to highlight selected hero, and display button to contine.
@@ -145,7 +146,7 @@ function selectHero(event){
     let heroButton = document.getElementById(event + 'button');
     hero[0].style.border = '5px solid green';
     heroButton.style.display = 'block';
-    document.getElementById(event + '_text').style.display = "block";
+    //document.getElementById(event + '_text').style.display = "block";
     // When the user clicks on a character button, check if player 1 or 2 has selected.
     let playerOne = document.getElementById('playerOneChar');
     let playerTwo = document.getElementById('playerTwoChar');

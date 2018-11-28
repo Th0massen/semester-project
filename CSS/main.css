@@ -174,10 +174,24 @@ body {
 }
 #GameInfo #GameTitle {
   text-align: center;
+  font-family: "Cinzel Decorative", cursive;
+  font-size: 20px;
 }
-#GameInfo #DiceScore {
+#GameInfo #DiceButton button {
+  padding: 15px;
+  font-size: 20px;
+}
+#GameInfo #DiceButton #diceImg {
+  display: inline-block;
+  padding: 5px;
+  margin-left: 15px;
+  font-size: 28px;
+}
+#GameInfo #DiceButton #DiceScore {
   border: 1px solid black;
   padding: 15px;
+  font-family: "Cinzel Decorative", cursive;
+  font-size: 20px;
 }
 
 .Tile_X .Tile {
@@ -253,6 +267,37 @@ body {
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+}
+
+.PlayerInfo {
+  margin-top: 50px;
+  font-size: 18px;
+}
+.PlayerInfo #player1Char {
+  text-align: center;
+  font-family: "Cinzel Decorative", cursive;
+}
+.PlayerInfo #playerOneImg {
+  width: 100%;
+  height: 150px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  text-align: center;
+  margin-bottom: 100px;
+}
+.PlayerInfo #player2Char {
+  text-align: center;
+  font-family: "Cinzel Decorative", cursive;
+}
+.PlayerInfo #playerTwoImg {
+  width: 100%;
+  height: 150px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  text-align: center;
+  margin-bottom: 75px;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -158,28 +158,34 @@ function players(){
     let imageSrc = returnPlayerImg(storageKey);
     var start = document.getElementById('1');
     var player1 = document.createElement('div');
-    let playerOneCharInfo = document.getElementById('player1Char');
     player1.setAttribute('class', 'Player');
     player1.setAttribute('id', 'playerOne');
     player1.style.backgroundImage = "url('" + imageSrc + "')";
     // get data from localStorage, to see what characters are chosen.
     let player1_Character = localStorage.getItem('Player 1');
-    playerOneCharInfo.innerHTML = player1_Character;
     console.log( "Player 1 : " + player1_Character);
+    // add image and info on the side of the game board
+    let playerOneCharInfo = document.getElementById('player1Char');
+    let playerOneImg = document.getElementById('playerOneImg');
+    playerOneCharInfo.innerHTML = player1_Character;
+    playerOneImg.style.backgroundImage = "url('" + imageSrc + "')";
     start.appendChild(player1);
 
     // Player 2
     storageKey = "Player 2";
     imageSrc = returnPlayerImg(storageKey);
     var player2 = document.createElement('div');
-    let playerTwoCharInfo = document.getElementById('player2Char');
     player2.setAttribute('class', 'Player');
     player2.setAttribute('id', 'playerTwo');
     player2.style.backgroundImage = "url('" + imageSrc + "')";
     // Player 2 character from localStorage
     let player2_character = localStorage.getItem('Player 2');
-    playerTwoCharInfo.innerHTML = player2_character;
     console.log(  "Player 2 : " + player2_character);
+    // add image and info on the side of the game board
+    let playerTwoCharInfo = document.getElementById('player2Char');
+    let playerTwoImg = document.getElementById('playerTwoImg');
+    playerTwoCharInfo.innerHTML = player2_character;
+    playerTwoImg.style.backgroundImage = "url('" + imageSrc + "')";
     start.appendChild(player2);
 }
 
@@ -213,10 +219,12 @@ function returnPlayerImg(storageKey){
 // Dice function that checks whos turn it is
 
 function dice(){
-    var Score = Math.floor(Math.random() * 5) + 1;
+    var Score = Math.floor(Math.random() * 6) + 1;
     let winnerModal = document.getElementById('winModal');
     let winner = document.getElementById('winPlayer');
     let gratz = document.getElementById('gz');
+    // add dice image after each trow
+    displayDice(Score);
     console.log('-----');
     console.log('Player ' + playerTurn + " advanced " + Score + " tiles.");
     // Player 1 Controls
@@ -423,6 +431,30 @@ function checkTraps(player){
             PlayerScore_2 = tile;
         }
     }
+}
+
+// Function to display dice icons on the html site
+function displayDice(Score){
+    switch(Score){
+        case 1:
+            document.getElementById("Dice Image").className = "fas fa-dice-one";
+            break;
+        case 2:
+            document.getElementById("Dice Image").className = "fas fa-dice-two";
+            break;
+        case 3: 
+            document.getElementById("Dice Image").className = "fas fa-dice-three";
+            break;
+        case 4: 
+            document.getElementById("Dice Image").className = "fas fa-dice-four";
+            break;
+        case 5: 
+            document.getElementById("Dice Image").className = "fas fa-dice-five";
+            break;
+        case 6: 
+            document.getElementById("Dice Image").className = "fas fa-dice-six";
+            break;
+    };
 }
 
 

@@ -1,6 +1,6 @@
 
 // Initial site zoom
-document.body.style.zoom = "90%";
+document.getElementById('game').style.zoom = 0.9;
 
 // Global variables
 
@@ -223,6 +223,7 @@ function dice(){
     let winnerModal = document.getElementById('winModal');
     let winner = document.getElementById('winPlayer');
     let gratz = document.getElementById('gz');
+    let updatePlayerTurn = document.getElementById('playersturn');
     // add dice image after each trow
     displayDice(Score);
     console.log('-----');
@@ -230,80 +231,63 @@ function dice(){
     // Player 1 Controls
     if( playerTurn == 1 ){
         document.getElementById('DiceScore').innerHTML = "Player 1 rolled: " + Score;
-        // Make sure players dont move past tile 60
-        if( PlayerScore_1 > 60 ){
-            console.log('Victory Player 1');
-            document.getElementById('60').appendChild(document.getElementById('playerOne'));
-            winnerModal.style.display = 'block';
-            winner.innerHTML = localStorage.getItem('Player 1');
-            gratz.innerHTML = "Player 1";
-        // when a player lands on the last tile
-        } else if( PlayerScore_1 == 60 ){
-            console.log('Victory player 1');
-            document.getElementById('60').appendChild(document.getElementById('playerOne'));
-            winnerModal.style.display = 'block';
-            winner.innerHTML = localStorage.getItem('Player 1');
-            gratz.innerHTML = "Player 1";
-        } else if( PlayerScore_1 < 60 ){
-            for( var i = 0; i < Score && i < 60; i++ ){
+        if( PlayerScore_1 < 65 ){
+            for( var i = 1; i <= Score && i <= 65; i++ ){
                 // timeout function to make the player move one tile at a time
                 setTimeout(function(){
                     PlayerScore_1 = PlayerScore_1 + 1;
                     document.getElementById(PlayerScore_1).appendChild(document.getElementById('playerOne'));
                 }, 500*(i+1))
-                if( PlayerScore_1 == 60 ){
-                    PlayerScore_1 = 60;
+                if( PlayerScore_1 >= 65 ){
                     console.log('Victory P1');
                     document.getElementById(PlayerScore_1).appendChild(document.getElementById('playerOne'));
                     winnerModal.style.display = 'block';
                     winner.innerHTML = localStorage.getItem('Player 1');
                     gratz.innerHTML = "Player 1";
-                } else{
-                    let player = 'Player 1';
-                    checkTraps(player);
                 }
             }
         }
-        playerTurn = playerTurn + 1;
-
+        if( PlayerScore_1 >= 65 ){
+            console.log('Victory P1');
+            document.getElementById(PlayerScore_1).appendChild(document.getElementById('playerOne'));
+            winnerModal.style.display = 'block';
+            winner.innerHTML = localStorage.getItem('Player 1');
+            gratz.innerHTML = "Player 1";
+        }
+        if( Score < 6 ){
+            playerTurn = playerTurn + 1;
+            setTimeout(function(){
+                updatePlayerTurn.innerHTML = " " + 2;
+            }, 1500);
+        }
+        let player = 'Player 1';
+        checkTraps(player);
     // Player 2 Controls
     } else if( playerTurn == 2 ){
         document.getElementById('DiceScore').innerHTML = "Player 2 rolled: " + Score;
-        // Make sure player 2 dont move past the last tile
-        if( PlayerScore_2 > 60 ){
-            console.log('Victory Player 2');
-            document.getElementById('60').appendChild(document.getElementById('playerTwo'));
-            winnerModal.style.display = 'block';
-            winner.innerHTML = localStorage.getItem('Player 2');
-            gratz.innerHTML = "Player 2";
-            // when player 2 is on the last tile
-        } else if( PlayerScore_2 == 60 ){
-            console.log('Victory Player 2');
-            document.getElementById('60').appendChild(document.getElementById('playerTwo'));
-            winnerModal.style.display = 'block';
-            winner.innerHTML = localStorage.getItem('Player 2');
-            gratz.innerHTML = "Player 2";
-        } else if( PlayerScore_2 < 60 ){
-            for( var j = 0; j < Score && j < 60; j++ ){
+        if( PlayerScore_2 < 65 ){
+            for( var j = 0; j < Score && j < 65; j++ ){
                 setTimeout(function(){
                     PlayerScore_2 = PlayerScore_2 + 1;
                     document.getElementById(PlayerScore_2).appendChild(document.getElementById('playerTwo'));
                 }, 500*(j+1))
-                if( PlayerScore_2 == 60 ){
-                    PlayerScore_2 = 60;
+                if( PlayerScore_2 >= 65 ){
                     console.log('Victory P2');
                     document.getElementById(PlayerScore_2).appendChild(document.getElementById('playerTwo'));
                     winnerModal.style.display = 'block';
                     winner.innerHTML = localStorage.getItem('Player 2');
                     gratz.innerHTML = "Player 2";
-                } else{
-                    let player = 'Player 2'
-                    checkTraps(player);
                 }
-                document.getElementById(PlayerScore_2).appendChild(document.getElementById('playerTwo'));
             }
         }
-        playerTurn = playerTurn - 1;
+        if( Score < 6 ){
+            playerTurn = playerTurn - 1;
+            setTimeout(function(){
+                updatePlayerTurn.innerHTML = " " + 1;
+            }, 1500);
+        }
+        let player = 'Player 2';
+        checkTraps(player);
     }
 }
 

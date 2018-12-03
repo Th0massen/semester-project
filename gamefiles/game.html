@@ -14,19 +14,20 @@
         <div id="GameTitle">
             <h1>Game of Boards</h1>
         </div>
+        <div id="DiceButton">
+            <p>Player :<span id="playersturn">1</span></p>
+            <button onclick=dice()>Roll Dice  <div id="diceImg"><i id="Dice Image" class="fas fa-dice-four"></i></div><!--<i class="fas fa-dice"></i>--></button>
+            <p id="DiceScore"></p>
+        </div>
         <div class="PlayerInfo">
             <div id="PlayerOne">
-                <p>Player 1: <span id="player1Char"></span></p>
+                <p>Player 1:<br><span id="player1Char"></span></p>
                 <div id="playerOneImg"></div>
             </div>
             <div id="PlayerTwo">
-                <p>Player 2: <span id="player2Char"></span></p>
+                <p>Player 2:<br><span id="player2Char"></span></p>
                 <div id="playerTwoImg"></div>
             </div>
-        </div>
-        <div id="DiceButton">
-            <button onclick=dice()>Roll Dice  <div id="diceImg"><i id="Dice Image"></i></div><!--<i class="fas fa-dice"></i>--></button>
-            <p id="DiceScore"></p>
         </div>
     </div>
     <!-- The game -->

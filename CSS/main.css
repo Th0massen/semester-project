@@ -163,6 +163,12 @@ body {
   background-size: contain;
 }
 
+#HiddenText {
+  display: none;
+  font-family: "Cinzel Decorative", cursive;
+  text-align: center;
+}
+
 #GameInfo {
   position: fixed;
   background-color: white;

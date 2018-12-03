@@ -15,10 +15,11 @@
             <h1>Game of Boards</h1>
         </div>
         <div id="DiceButton">
-            <p>Player :<span id="playersturn">1</span></p>
-            <button onclick=dice()>Roll Dice  <div id="diceImg"><i id="Dice Image" class="fas fa-dice-four"></i></div><!--<i class="fas fa-dice"></i>--></button>
+            <p>Player :<span id="playersturn">1</span>. You're Up</p>
+            <button id="TrowDiceButton" onclick=dice()>Roll Dice  <div id="diceImg"><i id="Dice Image" class="fas fa-dice-four"></i></div><!--<i class="fas fa-dice"></i>--></button>
             <p id="DiceScore"></p>
         </div>
+        <p id="HiddenText">Updating game..</p>
         <div class="PlayerInfo">
             <div id="PlayerOne">
                 <p>Player 1:<br><span id="player1Char"></span></p>

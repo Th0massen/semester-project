@@ -1,7 +1,4 @@
 
-// Initial site zoom
-document.getElementById('game').style.zoom = 0.9;
-
 // Global variables
 
 var PlayerScore_1 = 1;
@@ -220,6 +217,7 @@ function returnPlayerImg(storageKey){
 
 function dice(){
     var Score = Math.floor(Math.random() * 6) + 1;
+    // hide the button until the game is ready for next turn
     let winnerModal = document.getElementById('winModal');
     let winner = document.getElementById('winPlayer');
     let gratz = document.getElementById('gz');
@@ -231,14 +229,21 @@ function dice(){
     // Player 1 Controls
     if( playerTurn == 1 ){
         document.getElementById('DiceScore').innerHTML = "Player 1 rolled: " + Score;
-        if( PlayerScore_1 < 65 ){
-            for( var i = 1; i <= Score && i <= 65; i++ ){
+        if( PlayerScore_1 == 65 ){
+            console.log('Victory P1');
+            document.getElementById(PlayerScore_1).appendChild(document.getElementById('playerOne'));
+            winnerModal.style.display = 'block';
+            winner.innerHTML = localStorage.getItem('Player 1');
+            gratz.innerHTML = "Player 1";
+        }
+        else if( PlayerScore_1 < 65 ){
+            for( var i = 1; i <= Score && i < 65; i++ ){
                 // timeout function to make the player move one tile at a time
                 setTimeout(function(){
                     PlayerScore_1 = PlayerScore_1 + 1;
                     document.getElementById(PlayerScore_1).appendChild(document.getElementById('playerOne'));
                 }, 500*(i+1))
-                if( PlayerScore_1 >= 65 ){
+                if( PlayerScore_1 == 65 ){
                     console.log('Victory P1');
                     document.getElementById(PlayerScore_1).appendChild(document.getElementById('playerOne'));
                     winnerModal.style.display = 'block';
@@ -250,7 +255,7 @@ function dice(){
                 }
             }
         }
-        if( PlayerScore_1 >= 65 ){
+        if( PlayerScore_1 == 65 ){
             console.log('Victory P1');
             document.getElementById(PlayerScore_1).appendChild(document.getElementById('playerOne'));
             winnerModal.style.display = 'block';
@@ -266,13 +271,20 @@ function dice(){
     // Player 2 Controls
     } else if( playerTurn == 2 ){
         document.getElementById('DiceScore').innerHTML = "Player 2 rolled: " + Score;
-        if( PlayerScore_2 < 65 ){
+        if( PlayerScore_2 == 65 ){
+            console.log('Victory P2');
+            document.getElementById(PlayerScore_2).appendChild(document.getElementById('playerTwo'));
+            winnerModal.style.display = 'block';
+            winner.innerHTML = localStorage.getItem('Player 2');
+            gratz.innerHTML = "Player 2";
+        } 
+        else if( PlayerScore_2 < 65 ){
             for( var j = 0; j < Score && j < 65; j++ ){
                 setTimeout(function(){
                     PlayerScore_2 = PlayerScore_2 + 1;
                     document.getElementById(PlayerScore_2).appendChild(document.getElementById('playerTwo'));
                 }, 500*(j+1))
-                if( PlayerScore_2 >= 65 ){
+                if( PlayerScore_2 == 65 ){
                     console.log('Victory P2');
                     document.getElementById(PlayerScore_2).appendChild(document.getElementById('playerTwo'));
                     winnerModal.style.display = 'block';
@@ -329,7 +341,7 @@ function checkTraps(player){
     if( tile == 11 ){
         trapModal.style.display = 'block';
         trappedPlayer.innerHTML = character;
-        trapText.innerHTML = " was arrested by the nights watch. Move back to the wall."
+        trapText.innerHTML = " was arrested by the nights watch and sent back to the wall."
         document.getElementById('1').appendChild(player);
         if( playerTurn == 1 ){
             tile = 1;
@@ -339,29 +351,29 @@ function checkTraps(player){
             PlayerScore_2 = tile;
         }
     }
-    if( tile == 20 ){
+    if( tile == 23 ){
         trapModal.style.display = 'block';
         trappedPlayer.innerHTML = character;
-        trapText.innerHTML = " was arrested by the nights watch. Move back to the wall.";
-        document.getElementById('5').appendChild(player);
+        trapText.innerHTML = " was assaulted on the Iron Islands, You are sent back 10 Tiles";
+        document.getElementById('13').appendChild(player);
         if( playerTurn == 1 ){
-            tile = 5;
+            tile = 13;
             PlayerScore_1 = tile;
         } else if( playerTurn == 2 ){
-            tile = 5;
+            tile = 13;
             PlayerScore_2 = tile;
         }
     }
-    if( tile == 35 ){
+    if( tile == 31 ){
         trapModal.style.display = 'block';
         trappedPlayer.innerHTML = character;
-        trapText.innerHTML = " was arrested by the nights watch. Move back to the wall.";
-        document.getElementById('30').appendChild(player);
+        trapText.innerHTML = " got ambushed on the way to Riverrun, return to Winterfell";
+        document.getElementById('10').appendChild(player);
         if( playerTurn == 1 ){
-            tile = 30;
+            tile = 10;
             PlayerScore_1 = tile;
         } else if( playerTurn == 2 ){
-            tile = 30;
+            tile = 10;
             PlayerScore_2 = tile;
         }
     }
@@ -442,7 +454,6 @@ function displayDice(Score){
             break;
     };
 }
-
 
 // Close the trap modal when the players click outside the modal box
 window.onclick = function(event) {

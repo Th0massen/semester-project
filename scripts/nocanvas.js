@@ -229,9 +229,9 @@ function dice(){
     // Player 1 Controls
     if( playerTurn == 1 ){
         document.getElementById('DiceScore').innerHTML = "Player 1 rolled: " + Score;
-        if( PlayerScore_1 == 65 ){
+        if( PlayerScore_1 > 65 ){
             console.log('Victory P1');
-            document.getElementById(PlayerScore_1).appendChild(document.getElementById('playerOne'));
+            document.getElementById('65').appendChild(document.getElementById('playerOne'));
             winnerModal.style.display = 'block';
             winner.innerHTML = localStorage.getItem('Player 1');
             gratz.innerHTML = "Player 1";
@@ -242,10 +242,17 @@ function dice(){
                 setTimeout(function(){
                     PlayerScore_1 = PlayerScore_1 + 1;
                     document.getElementById(PlayerScore_1).appendChild(document.getElementById('playerOne'));
+                    if( i == 64 ){
+                        console.log('Victory P1');
+                        document.getElementById('65').appendChild(document.getElementById('playerOne'));
+                        winnerModal.style.display = 'block';
+                        winner.innerHTML = localStorage.getItem('Player 1');
+                        gratz.innerHTML = "Player 1";
+                    }
                 }, 500*(i+1))
                 if( PlayerScore_1 == 65 ){
                     console.log('Victory P1');
-                    document.getElementById(PlayerScore_1).appendChild(document.getElementById('playerOne'));
+                    document.getElementById('65').appendChild(document.getElementById('playerOne'));
                     winnerModal.style.display = 'block';
                     winner.innerHTML = localStorage.getItem('Player 1');
                     gratz.innerHTML = "Player 1";
@@ -257,7 +264,7 @@ function dice(){
         }
         if( PlayerScore_1 == 65 ){
             console.log('Victory P1');
-            document.getElementById(PlayerScore_1).appendChild(document.getElementById('playerOne'));
+            document.getElementById('65').appendChild(document.getElementById('playerOne'));
             winnerModal.style.display = 'block';
             winner.innerHTML = localStorage.getItem('Player 1');
             gratz.innerHTML = "Player 1";
@@ -271,9 +278,9 @@ function dice(){
     // Player 2 Controls
     } else if( playerTurn == 2 ){
         document.getElementById('DiceScore').innerHTML = "Player 2 rolled: " + Score;
-        if( PlayerScore_2 == 65 ){
+        if( PlayerScore_2 > 65 ){
             console.log('Victory P2');
-            document.getElementById(PlayerScore_2).appendChild(document.getElementById('playerTwo'));
+            document.getElementById('65').appendChild(document.getElementById('playerTwo'));
             winnerModal.style.display = 'block';
             winner.innerHTML = localStorage.getItem('Player 2');
             gratz.innerHTML = "Player 2";
@@ -283,10 +290,17 @@ function dice(){
                 setTimeout(function(){
                     PlayerScore_2 = PlayerScore_2 + 1;
                     document.getElementById(PlayerScore_2).appendChild(document.getElementById('playerTwo'));
+                    if( j == 65 ){
+                        console.log('Victory P2');
+                        document.getElementById('65').appendChild(document.getElementById('playerTwo'));
+                        winnerModal.style.display = 'block';
+                        winner.innerHTML = localStorage.getItem('Player 2');
+                        gratz.innerHTML = "Player 2";
+                    }
                 }, 500*(j+1))
                 if( PlayerScore_2 == 65 ){
                     console.log('Victory P2');
-                    document.getElementById(PlayerScore_2).appendChild(document.getElementById('playerTwo'));
+                    document.getElementById('65').appendChild(document.getElementById('playerTwo'));
                     winnerModal.style.display = 'block';
                     winner.innerHTML = localStorage.getItem('Player 2');
                     gratz.innerHTML = "Player 2";
@@ -304,7 +318,6 @@ function dice(){
         }
     }
 }
-
 
 // Function to add traps and check if a player landed on them
 

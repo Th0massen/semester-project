@@ -244,6 +244,9 @@ function dice(){
                     winnerModal.style.display = 'block';
                     winner.innerHTML = localStorage.getItem('Player 1');
                     gratz.innerHTML = "Player 1";
+                } else{
+                    let player = 'Player 1';
+                    checkTraps(player);
                 }
             }
         }
@@ -260,8 +263,6 @@ function dice(){
                 updatePlayerTurn.innerHTML = " " + 2;
             }, 1500);
         }
-        let player = 'Player 1';
-        checkTraps(player);
     // Player 2 Controls
     } else if( playerTurn == 2 ){
         document.getElementById('DiceScore').innerHTML = "Player 2 rolled: " + Score;
@@ -277,6 +278,9 @@ function dice(){
                     winnerModal.style.display = 'block';
                     winner.innerHTML = localStorage.getItem('Player 2');
                     gratz.innerHTML = "Player 2";
+                } else{
+                    let player = 'Player 2';
+                    checkTraps(player);
                 }
             }
         }
@@ -286,8 +290,6 @@ function dice(){
                 updatePlayerTurn.innerHTML = " " + 1;
             }, 1500);
         }
-        let player = 'Player 2';
-        checkTraps(player);
     }
 }
 

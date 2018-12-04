@@ -3,6 +3,23 @@ body {
   margin: 0;
 }
 
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
 #landingPage {
   background-image: url(../../resources/landingBG.jpg);
   background-position: top;
@@ -202,6 +219,10 @@ body {
   padding: 5px 59px;
   margin: 0 auto;
   font-size: 20px;
+}
+#GameInfo #DiceButton #HiddenDiceButton i {
+  animation: spin 3.2s linear;
+  -webkit-animation: spin 3.2s linear;
 }
 
 .Tile_X .Tile {

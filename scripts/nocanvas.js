@@ -286,7 +286,6 @@ function dice(){
             }
             // time delay so players are done moving when the check happens
             setTimeout(function(){
-                console.log('check for trap');
                 let player = 'Player 2';
                 checkTile(player);
             }, 3200);
@@ -442,16 +441,28 @@ function checkTile(player){
         // Goal
         case 65:
             winnerModal.style.display = 'block';
-            if( playerTurn == 1 ){
+            if( player == 'Player 1' ){
                 document.getElementById('65').appendChild(document.getElementById('playerOne'));
                 winner.innerHTML = localStorage.getItem('Player 1');
                 gratz.innerHTML = "Player 1";
-            } else if( playerTurn == 2 ){
+            } else if( player == 'Player 2' ){
                 document.getElementById('65').appendChild(document.getElementById('playerTwo'));
                 winner.innerHTML = localStorage.getItem('Player 2');
                 gratz.innerHTML = "Player 2";
             }
-
+            break;
+        // Check if player 1 is past the last tile
+        case ( PlayerScore_1 > 65 ):
+                document.getElementById('65').appendChild(document.getElementById('playerOne'));
+                winner.innerHTML = localStorage.getItem('Player 1');
+                gratz.innerHTML = "Player 1";
+                break;
+        // Check if player 2 is past the last tile
+        case ( PlayerScore_2 > 65 ):
+            document.getElementById('65').appendChild(document.getElementById('playerTwo'));
+            winner.innerHTML = localStorage.getItem('Player 2');
+            gratz.innerHTML = "Player 2";
+            break;
     }
 }
 

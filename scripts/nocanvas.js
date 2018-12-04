@@ -48,6 +48,7 @@ function buildBoard(){
     colY_3.setAttribute('class', 'Tile_Y_2');
     var colY_4 = document.createElement('div');
     colY_4.setAttribute('class', 'Tile_Y_reversed');
+
     // Row 1
     for(let i = 1; i <= 10; i++){
         let tile = document.createElement('div');
@@ -59,7 +60,7 @@ function buildBoard(){
         tileX.appendChild(tile);
         container.appendChild(tileX);
     }
-    // Go down
+    // Row Downwards
     for( let i = 11; i < 13; i++ ){
         let tile = document.createElement('div');
         tile.setAttribute('class', 'Tile');
@@ -81,7 +82,7 @@ function buildBoard(){
         tileX_2.appendChild(tile);
         container.appendChild(tileX_2);
     }
-    //Go down
+    //Row Downwards
     for( let i = 23; i < 24; i++ ){
         let tile = document.createElement('div');
         tile.setAttribute('class', 'Tile');
@@ -103,7 +104,7 @@ function buildBoard(){
         tileX_3.appendChild(tile);
         container.appendChild(tileX_3);
     }
-    // Go Down
+    // Row Downwards
     for( let i = 37; i < 39; i++ ){
         let tile = document.createElement('div');
         tile.setAttribute('class', 'Tile');
@@ -152,7 +153,7 @@ function buildBoard(){
 function players(){
     // Player 1
     let storageKey = "Player 1";
-    let imageSrc = returnPlayerImg(storageKey);
+    let imageSrc = replayerTurnImg(storageKey);
     var start = document.getElementById('1');
     var player1 = document.createElement('div');
     player1.setAttribute('class', 'Player');
@@ -170,7 +171,7 @@ function players(){
 
     // Player 2
     storageKey = "Player 2";
-    imageSrc = returnPlayerImg(storageKey);
+    imageSrc = replayerTurnImg(storageKey);
     var player2 = document.createElement('div');
     player2.setAttribute('class', 'Player');
     player2.setAttribute('id', 'playerTwo');
@@ -188,7 +189,7 @@ function players(){
 
 
 // Find the correct character icons
-function returnPlayerImg(storageKey){
+function replayerTurnImg(storageKey){
     switch(localStorage.getItem(storageKey)){
         case 'Daenerys Targaryen':
             return '../resources/characters/Daenerys Targaryen.svg';
@@ -213,20 +214,21 @@ function returnPlayerImg(storageKey){
     }
 }
 
+
 // Dice function that checks whos turn it is
 
 function dice(){
     var Score = Math.floor(Math.random() * 6) + 1;
-   let updatePlayerTurn = document.getElementById('playersturn');
-   // Hide the roll dice button until the game is updated
-   let diceButton = document.getElementById('TrowDiceButton');
-   let hiddenDiceButton = document.getElementById('HiddenDiceButton');
-   diceButton.style.display = "none";
-   hiddenDiceButton.style.display = "block";
-   setTimeout(function(){
+    let updatePlayerTurn = document.getElementById('playersturn');
+    // Hide the roll dice button until the game is updated
+    let diceButton = document.getElementById('TrowDiceButton');
+    let hiddenDiceButton = document.getElementById('HiddenDiceButton');
+    diceButton.style.display = "none";
+    hiddenDiceButton.style.display = "block";
+    setTimeout(function(){
         diceButton.style.display = "block";
         hiddenDiceButton.style.display = "none";
-   }, 3500);
+    }, 3200);
     // add dice image after each trow
     displayDice(Score);
     console.log('-----');
@@ -235,82 +237,96 @@ function dice(){
     // Player 1
     if( playerTurn == 1 ){
         document.getElementById('DiceScore').innerHTML = "Player 1 rolled: " + Score;
+        // Move camera to player 
+        let player = document.getElementById('playerOne');
+        player.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+            inline: 'center'
+        });
         if( PlayerScore_1 < 65 ){
             for( var i = 1; i <= Score && i < 65; i++ ){
                 // timeout function to make the player move one tile at a time
                 setTimeout(function(){
                     PlayerScore_1 = PlayerScore_1 + 1;
                     document.getElementById(PlayerScore_1).appendChild(document.getElementById('playerOne'));
-                }, 500*(i+1))
+                }, 400*(i+1))
             }
             // time delay so players are done moving when the check happens
             setTimeout(function(){
                 let player = 'Player 1';
-                checkTile(player, PlayerScore_1);
-            }, 3500);
+                checkTile(player);
+            }, 3200);
         }
-        // if player trows a 6
+        // if player does not trow a 6
         if( Score < 6 ){
             playerTurn = playerTurn + 1;
             setTimeout(function(){
                 updatePlayerTurn.innerHTML = " " + 2;
-            }, 3500);
+            }, 3200);
         }
     } 
 
     // Player 2 Controls
     else if( playerTurn == 2 ){
         document.getElementById('DiceScore').innerHTML = "Player 2 rolled: " + Score;
+        // Move camera to player 
+        let player = document.getElementById('playerTwo');
+        player.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+            inline: 'center'
+        });
         if( PlayerScore_2 < 65 ){
             for( let i = 0; i < Score && i < 65; i++ ){
                 setTimeout(function(){
                     PlayerScore_2 = PlayerScore_2 + 1;
                     document.getElementById(PlayerScore_2).appendChild(document.getElementById('playerTwo'));
-                }, 500*(i+1))
+                }, 400*(i+1))
             }
             // time delay so players are done moving when the check happens
             setTimeout(function(){
+                console.log('check for trap');
                 let player = 'Player 2';
-                checkTile(player, PlayerScore_2);
-            }, 3500);
+                checkTile(player);
+            }, 3200);
         }
-        // if player trows a 6
+        // if player does not trow a 6
         if( Score < 6 ){
             playerTurn = playerTurn - 1;
             setTimeout(function(){
                 updatePlayerTurn.innerHTML = " " + 1;
-            }, 3500);
+            }, 3200);
         }
     }
 }
 
+
 // Function to check for traps or victory
 
-function checkTile(player, PlayerScore_1, PlayerScore_2){
+function checkTile(player){
     // Player variables
     let playerTile;
     let character;
-    let playerTurn;
+    let players;
     let charOne = localStorage.getItem('Player 1');
     let charTwo = localStorage.getItem('Player 2');
     
     // Check player turn
     if( player == 'Player 1' ){
         playerTile = PlayerScore_1;
-        playerTurn = 1;
-        player = document.getElementById('playerOne');
+        players = document.getElementById('playerOne');
         character = charOne;
     } else if( player == 'Player 2' ){
         playerTile = PlayerScore_2;
-        playerTurn = 2;
-        player = document.getElementById('playerTwo');
+        players = document.getElementById('playerTwo');
         character = charTwo;
     }
     // trap modal variables
     let trapModal = document.getElementById('trapModal');
     let trappedPlayer = document.getElementById('trapPlayer');
     let trapText = document.getElementById('trapText');
-    
+
     // winner modal variables
     let winnerModal = document.getElementById('winModal');
     let winner = document.getElementById('winPlayer');
@@ -322,29 +338,107 @@ function checkTile(player, PlayerScore_1, PlayerScore_2){
         case 13:
             trapModal.style.display = 'block';
             trappedPlayer.innerHTML = character;
-            trapText.innerHTML = " was arrested by the nights watch and sent back to the wall."
-            document.getElementById('1').appendChild(player);
-            if( playerTurn == 1 ){
-                PlayerScore_1 = playerTile;
-            } else if( playerTurn == 2 ){
+            trapText.innerHTML = " was arrested by the Nights Watch, Move back to the Wall."
+            if( player == 'Player 1' ){
                 playerTile = 1;
-                PlayerScore_2 = playerTile;
+                PlayerScore_1 = 1;
+                document.getElementById('1').appendChild(players);
+            } else if( player == 'Player 2' ){
+                playerTile = 1;
+                PlayerScore_2 = 1;
+                document.getElementById('1').appendChild(players);
             }
-            break;
+            return PlayerScore_1, PlayerScore_2;
         // trap
         case 23:
             trapModal.style.display = 'block';
             trappedPlayer.innerHTML = character;
-            trapText.innerHTML = " was assaulted on the Iron islands, Move back to Winterfell"
-            document.getElementById('10').appendChild(player);
-            if( playerTurn == 1 ){
+            trapText.innerHTML = " was ambushed on the way to the Iron Islands, move back to Winterfell."
+            if( player == 'Player 1' ){
                 playerTile = 10;
-                PlayerScore_1 = playerTile;
-            } else if( playerTurn == 2 ){
+                PlayerScore_1 = 10;
+                document.getElementById('10').appendChild(players);
+            } else if( player == 'Player 2' ){
                 playerTile = 10;
-                PlayerScore_2 = playerTile;
+                PlayerScore_2 = 10;
+                document.getElementById('10').appendChild(players);
             }
-            break;
+            return PlayerScore_1, PlayerScore_2;
+        // trap
+        case 31:
+            trapModal.style.display = 'block';
+            trappedPlayer.innerHTML = character;
+            trapText.innerHTML = " was denied access to Riverun, Move back 5 tiles."
+            if( player == 'Player 1' ){
+                playerTile = 26;
+                PlayerScore_1 = 26;
+                document.getElementById('26').appendChild(players);
+            } else if( player == 'Player 2' ){
+                playerTile = 26;
+                PlayerScore_2 = 26;
+                document.getElementById('26').appendChild(players);
+            }
+            return PlayerScore_1, PlayerScore_2;
+        // trap
+        case 40:
+            trapModal.style.display = 'block';
+            trappedPlayer.innerHTML = character;
+            trapText.innerHTML = " was burned by a dragon, Escape to Riverrun."
+            if( player == 'Player 1' ){
+                playerTile = 32;
+                PlayerScore_1 = 32;
+                document.getElementById('32').appendChild(players);
+            } else if( player == 'Player 2' ){
+                playerTile = 32;
+                PlayerScore_2 = 32;
+                document.getElementById('32').appendChild(players);
+            }
+            return PlayerScore_1, PlayerScore_2;
+        // trap
+        case 47:
+            trapModal.style.display = 'block';
+            trappedPlayer.innerHTML = character;
+            trapText.innerHTML = " successfully attacked Casterly Rock, Granted safe passage to The Shield Islands"
+            if( player == 'Player 1' ){
+                playerTile = 54;
+                PlayerScore_1 = 54;
+                document.getElementById('54').appendChild(players);
+            } else if( player == 'Player 2' ){
+                playerTile = 54;
+                PlayerScore_2 = 54;
+                document.getElementById('54').appendChild(players);
+            }
+            return PlayerScore_1, PlayerScore_2;
+        // trap
+        case 60:
+            trapModal.style.display = 'block';
+            trappedPlayer.innerHTML = character;
+            trapText.innerHTML = " was defeated in the battle for Highgarden, and sent back to The Wall."
+            if( player == 'Player 1' ){
+                playerTile = 1;
+                PlayerScore_1 = 1;
+                document.getElementById('1').appendChild(players);
+            } else if( player == 'Player 2' ){
+                playerTile = 1;
+                PlayerScore_2 = 1;
+                document.getElementById('1').appendChild(players);
+            }
+            return PlayerScore_1, PlayerScore_2;
+        // trap
+        case 64:
+            trapModal.style.display = 'block';
+            trappedPlayer.innerHTML = character;
+            trapText.innerHTML = " was kicked out of Kings Landing, return to Highgarden."
+            if( player == 'Player 1' ){
+                playerTile = 59;
+                PlayerScore_1 = 59;
+                document.getElementById('59').appendChild(players);
+            } else if( player == 'Player 2' ){
+                playerTile = 59;
+                PlayerScore_2 = 59;
+                document.getElementById('59').appendChild(players);
+            }
+            return PlayerScore_1, PlayerScore_2;
         // Goal
         case 65:
             winnerModal.style.display = 'block';

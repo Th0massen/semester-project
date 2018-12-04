@@ -217,230 +217,147 @@ function returnPlayerImg(storageKey){
 
 function dice(){
     var Score = Math.floor(Math.random() * 6) + 1;
-    // hide the button until the game is ready for next turn
-    let winnerModal = document.getElementById('winModal');
-    let winner = document.getElementById('winPlayer');
-    let gratz = document.getElementById('gz');
-    let updatePlayerTurn = document.getElementById('playersturn');
+   let updatePlayerTurn = document.getElementById('playersturn');
+   // Hide the roll dice button until the game is updated
+   let diceButton = document.getElementById('TrowDiceButton');
+   let hiddenDiceButton = document.getElementById('HiddenDiceButton');
+   diceButton.style.display = "none";
+   hiddenDiceButton.style.display = "block";
+   setTimeout(function(){
+        diceButton.style.display = "block";
+        hiddenDiceButton.style.display = "none";
+   }, 3500);
     // add dice image after each trow
     displayDice(Score);
     console.log('-----');
     console.log('Player ' + playerTurn + " advanced " + Score + " tiles.");
-    // Player 1 Controls
+    
+    // Player 1
     if( playerTurn == 1 ){
         document.getElementById('DiceScore').innerHTML = "Player 1 rolled: " + Score;
-        if( PlayerScore_1 > 65 ){
-            console.log('Victory P1');
-            document.getElementById('65').appendChild(document.getElementById('playerOne'));
-            winnerModal.style.display = 'block';
-            winner.innerHTML = localStorage.getItem('Player 1');
-            gratz.innerHTML = "Player 1";
-        }
-        else if( PlayerScore_1 < 65 ){
+        if( PlayerScore_1 < 65 ){
             for( var i = 1; i <= Score && i < 65; i++ ){
                 // timeout function to make the player move one tile at a time
                 setTimeout(function(){
                     PlayerScore_1 = PlayerScore_1 + 1;
                     document.getElementById(PlayerScore_1).appendChild(document.getElementById('playerOne'));
-                    if( i == 64 ){
-                        console.log('Victory P1');
-                        document.getElementById('65').appendChild(document.getElementById('playerOne'));
-                        winnerModal.style.display = 'block';
-                        winner.innerHTML = localStorage.getItem('Player 1');
-                        gratz.innerHTML = "Player 1";
-                    }
                 }, 500*(i+1))
-                if( PlayerScore_1 == 65 ){
-                    console.log('Victory P1');
-                    document.getElementById('65').appendChild(document.getElementById('playerOne'));
-                    winnerModal.style.display = 'block';
-                    winner.innerHTML = localStorage.getItem('Player 1');
-                    gratz.innerHTML = "Player 1";
-                } else{
-                    let player = 'Player 1';
-                    checkTraps(player);
-                }
             }
+            // time delay so players are done moving when the check happens
+            setTimeout(function(){
+                let player = 'Player 1';
+                checkTile(player, PlayerScore_1);
+            }, 3500);
         }
-        if( PlayerScore_1 == 65 ){
-            console.log('Victory P1');
-            document.getElementById('65').appendChild(document.getElementById('playerOne'));
-            winnerModal.style.display = 'block';
-            winner.innerHTML = localStorage.getItem('Player 1');
-            gratz.innerHTML = "Player 1";
-        }
+        // if player trows a 6
         if( Score < 6 ){
             playerTurn = playerTurn + 1;
             setTimeout(function(){
                 updatePlayerTurn.innerHTML = " " + 2;
-            }, 1500);
+            }, 3500);
         }
+    } 
+
     // Player 2 Controls
-    } else if( playerTurn == 2 ){
+    else if( playerTurn == 2 ){
         document.getElementById('DiceScore').innerHTML = "Player 2 rolled: " + Score;
-        if( PlayerScore_2 > 65 ){
-            console.log('Victory P2');
-            document.getElementById('65').appendChild(document.getElementById('playerTwo'));
-            winnerModal.style.display = 'block';
-            winner.innerHTML = localStorage.getItem('Player 2');
-            gratz.innerHTML = "Player 2";
-        } 
-        else if( PlayerScore_2 < 65 ){
-            for( var j = 0; j < Score && j < 65; j++ ){
+        if( PlayerScore_2 < 65 ){
+            for( let i = 0; i < Score && i < 65; i++ ){
                 setTimeout(function(){
                     PlayerScore_2 = PlayerScore_2 + 1;
                     document.getElementById(PlayerScore_2).appendChild(document.getElementById('playerTwo'));
-                    if( j == 65 ){
-                        console.log('Victory P2');
-                        document.getElementById('65').appendChild(document.getElementById('playerTwo'));
-                        winnerModal.style.display = 'block';
-                        winner.innerHTML = localStorage.getItem('Player 2');
-                        gratz.innerHTML = "Player 2";
-                    }
-                }, 500*(j+1))
-                if( PlayerScore_2 == 65 ){
-                    console.log('Victory P2');
-                    document.getElementById('65').appendChild(document.getElementById('playerTwo'));
-                    winnerModal.style.display = 'block';
-                    winner.innerHTML = localStorage.getItem('Player 2');
-                    gratz.innerHTML = "Player 2";
-                } else{
-                    let player = 'Player 2';
-                    checkTraps(player);
-                }
+                }, 500*(i+1))
             }
+            // time delay so players are done moving when the check happens
+            setTimeout(function(){
+                let player = 'Player 2';
+                checkTile(player, PlayerScore_2);
+            }, 3500);
         }
+        // if player trows a 6
         if( Score < 6 ){
             playerTurn = playerTurn - 1;
             setTimeout(function(){
                 updatePlayerTurn.innerHTML = " " + 1;
-            }, 1500);
+            }, 3500);
         }
     }
 }
 
-// Function to add traps and check if a player landed on them
+// Function to check for traps or victory
 
-function checkTraps(player){
-    // variables to make it easier to code
-    console.log('check traps '+player);
-    let tile;
+function checkTile(player, PlayerScore_1, PlayerScore_2){
+    // Player variables
+    let playerTile;
     let character;
+    let playerTurn;
     let charOne = localStorage.getItem('Player 1');
     let charTwo = localStorage.getItem('Player 2');
-    // trap modal
+    
+    // Check player turn
+    if( player == 'Player 1' ){
+        playerTile = PlayerScore_1;
+        playerTurn = 1;
+        player = document.getElementById('playerOne');
+        character = charOne;
+    } else if( player == 'Player 2' ){
+        playerTile = PlayerScore_2;
+        playerTurn = 2;
+        player = document.getElementById('playerTwo');
+        character = charTwo;
+    }
+    // trap modal variables
     let trapModal = document.getElementById('trapModal');
     let trappedPlayer = document.getElementById('trapPlayer');
     let trapText = document.getElementById('trapText');
-    // modal variables
-    let closeModal = document.getElementById('closeTrapModal');
-    closeModal.onclick = function(){
-        trapModal.style.display = "none";
-    }
-    if( player == 'Player 1' ){
-        tile = PlayerScore_1;
-        character = charOne;
-        player = document.getElementById('playerOne');
-    } else{
-        tile = PlayerScore_2;
-        character = charTwo;
-        player = document.getElementById('playerTwo');
-    }
-    player.scrollIntoView({behavior: "smooth", block: "center", inline: "center"});
-    console.log( player);
+    
+    // winner modal variables
+    let winnerModal = document.getElementById('winModal');
+    let winner = document.getElementById('winPlayer');
+    let gratz = document.getElementById('gz');
 
-    // Traps
+    // check for traps or winner
+    switch(playerTile){
+        // trap
+        case 13:
+            trapModal.style.display = 'block';
+            trappedPlayer.innerHTML = character;
+            trapText.innerHTML = " was arrested by the nights watch and sent back to the wall."
+            document.getElementById('1').appendChild(player);
+            if( playerTurn == 1 ){
+                PlayerScore_1 = playerTile;
+            } else if( playerTurn == 2 ){
+                playerTile = 1;
+                PlayerScore_2 = playerTile;
+            }
+            break;
+        // trap
+        case 23:
+            trapModal.style.display = 'block';
+            trappedPlayer.innerHTML = character;
+            trapText.innerHTML = " was assaulted on the Iron islands, Move back to Winterfell"
+            document.getElementById('10').appendChild(player);
+            if( playerTurn == 1 ){
+                playerTile = 10;
+                PlayerScore_1 = playerTile;
+            } else if( playerTurn == 2 ){
+                playerTile = 10;
+                PlayerScore_2 = playerTile;
+            }
+            break;
+        // Goal
+        case 65:
+            winnerModal.style.display = 'block';
+            if( playerTurn == 1 ){
+                document.getElementById('65').appendChild(document.getElementById('playerOne'));
+                winner.innerHTML = localStorage.getItem('Player 1');
+                gratz.innerHTML = "Player 1";
+            } else if( playerTurn == 2 ){
+                document.getElementById('65').appendChild(document.getElementById('playerTwo'));
+                winner.innerHTML = localStorage.getItem('Player 2');
+                gratz.innerHTML = "Player 2";
+            }
 
-    if( tile == 11 ){
-        trapModal.style.display = 'block';
-        trappedPlayer.innerHTML = character;
-        trapText.innerHTML = " was arrested by the nights watch and sent back to the wall."
-        document.getElementById('1').appendChild(player);
-        if( playerTurn == 1 ){
-            tile = 1;
-            PlayerScore_1 = tile;
-        } else if( playerTurn == 2 ){
-            tile = 1;
-            PlayerScore_2 = tile;
-        }
-    }
-    if( tile == 23 ){
-        trapModal.style.display = 'block';
-        trappedPlayer.innerHTML = character;
-        trapText.innerHTML = " was assaulted on the Iron Islands, You are sent back 10 Tiles";
-        document.getElementById('13').appendChild(player);
-        if( playerTurn == 1 ){
-            tile = 13;
-            PlayerScore_1 = tile;
-        } else if( playerTurn == 2 ){
-            tile = 13;
-            PlayerScore_2 = tile;
-        }
-    }
-    if( tile == 31 ){
-        trapModal.style.display = 'block';
-        trappedPlayer.innerHTML = character;
-        trapText.innerHTML = " got ambushed on the way to Riverrun, return to Winterfell";
-        document.getElementById('10').appendChild(player);
-        if( playerTurn == 1 ){
-            tile = 10;
-            PlayerScore_1 = tile;
-        } else if( playerTurn == 2 ){
-            tile = 10;
-            PlayerScore_2 = tile;
-        }
-    }
-    if( tile == 44 ){
-        trapModal.style.display = 'block';
-        trappedPlayer.innerHTML = character;
-        trapText.innerHTML = " was arrested by the nights watch. Move back to the wall.";
-        document.getElementById('34').appendChild(player);
-        if( playerTurn == 1 ){
-            tile = 34;
-            PlayerScore_1 = tile;
-        } else if( playerTurn == 2 ){
-            tile = 34;
-            PlayerScore_2 = tile;
-        }
-    }
-    if( tile == 46 ){
-        trapModal.style.display = 'block';
-        trappedPlayer.innerHTML = character;
-        trapText.innerHTML = " was arrested by the nights watch. Move back to the wall.";
-        document.getElementById('40').appendChild(player);
-        if( playerTurn == 1 ){
-            tile = 40;
-            PlayerScore_1 = tile;
-        } else if( playerTurn == 2 ){
-            tile = 40;
-            PlayerScore_2 = tile;
-        }
-    }
-    if( tile == 53 ){
-        trapModal.style.display = 'block';
-        trappedPlayer.innerHTML = character;
-        trapText.innerHTML = " was arrested by the nights watch. Move back to the wall.";
-        document.getElementById('30').appendChild(player);
-        if( playerTurn == 1 ){
-            tile = 30;
-            PlayerScore_1 = tile;
-        } else if( playerTurn == 2 ){
-            tile = 30;
-            PlayerScore_2 = tile;
-        }
-    }
-    if( tile == 59 ){
-        trapModal.style.display = 'block';
-        trappedPlayer.innerHTML = character;
-        trapText.innerHTML = " was arrested by the nights watch. Move back to the wall.";
-        document.getElementById('1').appendChild(player);
-        if( playerTurn == 1 ){
-            tile = 1;
-            PlayerScore_1 = tile;
-        } else if( playerTurn == 2 ){
-            tile = 1;
-            PlayerScore_2 = tile;
-        }
     }
 }
 

@@ -23,12 +23,6 @@
     //margin-bottom: 50px;
 }
 
-#HiddenText{
-    display: none;
-    font-family: 'Cinzel Decorative', cursive;
-    text-align: center;
-}
-
 #GameInfo{
     position: fixed;
     background-color: white;
@@ -47,17 +41,28 @@
             font-size: 15px;
             //font-family: 'Cinzel Decorative', cursive;
         }
-        #diceImg{
-            display: inline-block;
-            padding: 5px;
-            margin-left: 15px;
-            font-size: 20px;
+        #PlayerTurn{
+            text-align: center;
         }
         #DiceScore{
             border: 1px solid black;
             padding: 15px;
             font-family: 'Cinzel Decorative', cursive;
             font-size: 16px;
+        }
+        #TrowDiceButton{
+            display: block;
+            padding: 5px;
+            margin: 0 auto;
+            font-size: 20px;
+        }
+        #HiddenDiceButton{
+            display: none;
+            width: 60px;
+            text-align: center;
+            padding: 5px 59px;
+            margin: 0 auto;
+            font-size: 20px;
         }
     }
 }

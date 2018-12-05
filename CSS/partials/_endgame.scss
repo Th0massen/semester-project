@@ -24,18 +24,16 @@
 
 #victoryContainer{
     display: grid;
-    grid-template-columns: 38% 1fr 38%;
+    grid-template-columns: 39% 1fr 39%;
     margin-top: 190px;
     .torch{
         margin: 50px auto;
         .fire{
             position: absolute;
-            border-style: solid;
             transform-origin: center bottom;
-            animation: fire .5s linear alternate infinite;
+            animation: fire .5s alternate infinite;
         }
         .light{
-            border-style: solid;
             transform-origin: center;
             animation: light .5s linear alternate infinite;
         }

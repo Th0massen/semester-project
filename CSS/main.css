@@ -331,31 +331,34 @@ body {
 }
 
 .PlayerInfo {
-  margin-top: 50px;
+  margin-top: 30px;
   font-size: 17px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  margin-bottom: -85px;
 }
-.PlayerInfo #player1Char {
+.PlayerInfo #PlayerOne #player1Char {
   text-align: center;
   font-family: "Cinzel Decorative", cursive;
 }
-.PlayerInfo #playerOneImg {
-  width: 100%;
-  height: 100px;
+.PlayerInfo #PlayerTwo #player2Char {
+  text-align: center;
+  font-family: "Cinzel Decorative", cursive;
+}
+
+#PlayerImgs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+#PlayerImgs #playerOneImg {
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
   text-align: center;
-  margin-bottom: 30px;
 }
-.PlayerInfo #player2Char {
-  text-align: center;
-  font-family: "Cinzel Decorative", cursive;
-}
-.PlayerInfo #playerTwoImg {
-  width: 100%;
-  height: 100px;
+#PlayerImgs #playerTwoImg {
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;

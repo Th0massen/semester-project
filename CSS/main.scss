@@ -5,30 +5,9 @@ body{
     margin: 0;
 }
 
-// Keyframes for spinning animations
-
-@keyframes spin {
-    100% {
-        transform:rotate( 360deg );
-        -moz-transform:rotate( 360deg );
-        -o-transform:rotate( 360deg );
-    }
-}
-
-@-moz-keyframes spin {
-    100% { 
-        -moz-transform: rotate( 360deg ); 
-    }
-}
-
-@-webkit-keyframes spin {
-    100% { 
-        -webkit-transform: rotate( 360deg ); 
-    }
-}
-
-
+@import "partials/keyframes.scss";
 @import "partials/_index";
-@import "partials/characters";
+@import "partials/_characters";
 @import "partials/_game";
+@import "partials/_endgame";
 

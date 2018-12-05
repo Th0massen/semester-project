@@ -167,6 +167,7 @@ function players(){
     let playerOneImg = document.getElementById('playerOneImg');
     playerOneCharInfo.innerHTML = player1_Character;
     playerOneImg.style.backgroundImage = "url('" + imageSrc + "')";
+    playerOneImg.style.height = '90px';
     start.appendChild(player1);
 
     // Player 2
@@ -184,6 +185,7 @@ function players(){
     let playerTwoImg = document.getElementById('playerTwoImg');
     playerTwoCharInfo.innerHTML = player2_character;
     playerTwoImg.style.backgroundImage = "url('" + imageSrc + "')";
+    playerOneImg.style.height = '90px';
     start.appendChild(player2);
 }
 

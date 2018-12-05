@@ -1,0 +1,25 @@
+<?xml version="1.0" standalone="no"?><!-- Generator: Gravit.io -->
+
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="isolation:isolate" viewBox="0 0 200 200" width="200" height="200">
+    <defs>
+        <clipPath id="_clipPath_bWFCJgt7RsTe6AvtzcTYEnqPgu0OXmKK">
+            <rect width="200" height="200"/>
+        </clipPath>
+    </defs>
+    <g clip-path="url(#_clipPath_bWFCJgt7RsTe6AvtzcTYEnqPgu0OXmKK)">
+        <circle vector-effect="non-scaling-stroke" cx="100" cy="72.27468487394961" r="44.999999999999986" fill="rgb(255,255,0)" fill-opacity="0.15" stroke-width="5" stroke="rgb(255,153,0)" stroke-opacity="0.15" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+        <circle vector-effect="non-scaling-stroke" cx="100.00000000000003" cy="72.27468487394964" r="29.99999999999998" fill="rgb(255,255,0)" fill-opacity="0.25" stroke-width="5" stroke="rgb(255,153,0)" stroke-opacity="0.2" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+        <polygon points="86.25,94,113.75,94,100,189.557" fill="rgb(59,40,23)"/>
+        <g>
+            <path d=" M 83.563 84.555 L 83.563 84.555 C 83.563 91.424 90.928 97 100 97 C 109.072 97 116.438 91.424 116.437 84.555 L 116.437 84.555 L 83.563 84.555 Z " fill-rule="evenodd" fill="rgb(255,153,0)"/>
+            <path d=" M 87.051 85.876 L 87.051 85.876 C 87.051 91.287 92.853 95.68 100 95.68 C 107.147 95.68 112.949 91.287 112.949 85.876 L 112.949 85.876 L 87.051 85.876 Z " fill-rule="evenodd" fill="rgb(255,255,0)"/>
+            <polygon points="97.515,85.865,83.563,85.865,90.539,55.409" fill="rgb(255,153,0)"/>
+            <polygon points="116.438,85.865,102.485,85.865,109.461,55.409" fill="rgb(255,153,0)"/>
+            <polygon points="106.976,84.555,93.024,84.555,100,47.549" fill="rgb(255,153,0)"/>
+            <polygon points="106.976,87.186,93.024,87.186,100,60.476" fill="rgb(255,255,0)"/>
+            <polygon points="95.695,87.186,87.051,87.186,91.373,70.637" fill="rgb(255,255,0)"/>
+            <polygon points="112.949,87.186,104.305,87.186,108.627,70.637" fill="rgb(255,255,0)"/>
+        </g>
+    </g>
+</svg>

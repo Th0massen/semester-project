@@ -30,6 +30,7 @@ function Characters(result){
     let container = document.getElementById("container");
     let characters = document.createElement("div");
     characters.setAttribute('class', '[ characters ]');
+    characters.setAttribute('id', 'characters');
     // Create the characters
     for(let i = 0; i < result.length; i++){
         let char = document.createElement('div');
@@ -39,21 +40,6 @@ function Characters(result){
         let char_name = document.createElement('h2');
         char_name.setAttribute('id', result[i].name + '_title');
         char_name.innerHTML = result[i].name;
-        /*
-        let char_title = document.createElement('div');
-        char_title.setAttribute('id', result[i].name + '_text');
-        char_title.setAttribute('class', 'charTitle');
-
-        for( var j = 0; j < result[i].titles.length; j++ ){
-            console.log(result[i].titles[j]);
-            char_title_text = document.createElement('p');
-            char_title_text.innerHTML = result[i].titles[j];
-            char_title.appendChild(char_title_text);
-        }
-        */
-        let char_gender = document.createElement('p');
-        char_gender.setAttribute('id', result[i].name + '_info');
-        char_gender.innerHTML = result[i].gender;
         // Add player tokens.
         char_img = document.createElement('img');
         char_img.setAttribute('class', 'token')
@@ -68,7 +54,6 @@ function Characters(result){
         char.appendChild(char_img);
         char.appendChild(char_name);
         //char.appendChild(char_title);
-        char.appendChild(char_gender);
         char.appendChild(char_button);
         characters.appendChild(char);
     }
@@ -76,51 +61,66 @@ function Characters(result){
     console.log('Please select a Character to continue.')
 };
 
-// Add event listener on document body to register user actions
-document.body.addEventListener( 'click', function(event){ 
-    switch(event = event.target.id){
-        case 'Daenerys Targaryen':
-            clearButtons();
-            selectHero(event);
-            break;
-        case 'Jon Snow':
-            clearButtons();
-            selectHero(event);
-            break;
-        case 'Tyrion Lannister':
-            clearButtons();
-            selectHero(event);
-            break;  
-        case 'Joffrey Baratheon':
-            clearButtons();
-            selectHero(event);
-            break;
-        case 'Petyr Baelish':
-            clearButtons();
-            selectHero(event);
-            break;  
-        case 'Sansa Stark':
-            clearButtons();
-            selectHero(event);
-            break;  
-        case 'Arya Stark':
-            clearButtons();
-            selectHero(event);
-            break;  
-        case 'Margaery Tyrell':
-            clearButtons();
-            selectHero(event);
-            break;
-        case "Cersei Lannister":
-            clearButtons();
-            selectHero(event);
-            break; 
-        case 'Brienne of Tarth':
-            clearButtons();
-            selectHero(event);
-            break;     
-    }
-});
+// Add event listener to container to register user actions
+let selection = setTimeout(function(){
+    let characterContainer = document.getElementById('characters');
+    characterContainer.addEventListener( 'click', function(event){  //event = event.target.parentNode.id
+        console.log(event.target.id);
+        switch(true) {
+            case event.target.id == 'Daenerys Targaryen' || event.target.parentNode.id == 'Daenerys Targaryen':
+                clearButtons();
+                event = 'Daenerys Targaryen';
+                selectHero(event);
+                break;
+            case event.target.id == 'Jon Snow' || event.target.parentNode.id == 'Jon Snow':
+                clearButtons();
+                event = 'Jon Snow'
+                selectHero(event);
+                break;
+            case event.target.id == 'Tyrion Lannister' || event.target.parentNode.id == 'Tyrion Lannister':
+                clearButtons();
+                event = 'Tyrion Lannister';
+                selectHero(event);
+                break;  
+            case event.target.id == 'Joffrey Baratheon' || event.target.parentNode.id == 'Joffrey Baratheon':
+                clearButtons();
+                event = 'Joffrey Baratheon'
+                selectHero(event);
+                break;
+            case event.target.id == 'Petyr Baelish' || event.target.parentNode.id == 'Petyr Baelish':
+                clearButtons();
+                event = 'Petyr Baelish';
+                selectHero(event);
+                break;  
+            case event.target.id == 'Sansa Stark' || event.target.parentNode.id == 'Sansa Stark':
+                clearButtons();
+                event = 'Sansa Stark';
+                selectHero(event);
+                break;  
+            case event.target.id == 'Arya Stark' || event.target.parentNode.id == 'Arya Stark':
+                clearButtons();
+                event = 'Arya Stark';
+                selectHero(event);
+                break;  
+            case event.target.id == 'Margaery Tyrell' || event.target.parentNode.id == 'Margaery Tyrell':
+                clearButtons();
+                event = 'Margaery Tyrell';
+                selectHero(event);
+                break;
+            case event.target.id == 'Cersei Lannister' || event.target.parentNode.id == "Cersei Lannister":
+                clearButtons();
+                event = 'Cersei Lannister';
+                selectHero(event);
+                break; 
+            case event.target.id == 'Brienne of Tarth' || event.target.parentNode.id == 'Brienne of Tarth':
+                clearButtons();
+                event = 'Brienne of Tarth'
+                selectHero(event);
+                break;     
+        }
+    });
+}, 500)
+selection;
 
 // When a user clicks on a hero, remove the style and hide the button for the other characters
 function clearButtons(){
@@ -142,20 +142,18 @@ function selectHero(event){
     let heroButton = document.getElementById(event + 'button');
     //hero[0].style.border = '5px solid green';
     heroButton.style.display = 'block';
-    //document.getElementById(event + '_text').style.display = "block";
     // When the user clicks on a character button, check if player 1 or 2 has selected.
     let playerOne = document.getElementById('playerOneChar');
     let playerTwo = document.getElementById('playerTwoChar');
     // Card borders 
     if(playerOne.value == '0'){
-        hero[0].style.border = "3px solid blue";
         hero[0].style.boxShadow = "0 0 20px blue";
+        hero[0].style.border = "3px solid blue";
     } else if(playerTwo.value == '0'){
         hero[0].style.border = "3px solid green";
         hero[0].style.boxShadow = "0 0 20px green";
     }
     heroButton.onclick = function(){
-        console.log(event);
         // CHeck if player 1 has chosen a character
         if(playerOne.value == '0'){
             playerOne.value = '1';

@@ -1,0 +1,25 @@
+<?xml version="1.0" standalone="no"?><!-- Generator: Gravit.io -->
+
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="isolation:isolate" viewBox="0 0 200 280" width="200" height="280">
+    <defs>
+        <clipPath id="_clipPath_ETsKiaa6MiQUhVCh1evwLLIZE4nBbCwu">
+            <rect width="200" height="280"/>
+        </clipPath>
+    </defs>
+    <g clip-path="url(#_clipPath_ETsKiaa6MiQUhVCh1evwLLIZE4nBbCwu)">
+        <ellipse class="[ light ]"vector-effect="non-scaling-stroke" cx="99.99999999999999" cy="92.2322687636758" rx="69.74999999999999" ry="67.8133498447568" fill="rgb(255,255,0)" fill-opacity="0.15" stroke-width="5" stroke="rgb(255,153,0)" stroke-opacity="0.15" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+        <ellipse class="[ light ]" vector-effect="non-scaling-stroke" cx="99.99999999999999" cy="90.34713362854072" rx="46.499999999999986" ry="46.465656653261284" fill="rgb(255,255,0)" fill-opacity="0.25" stroke-width="5" stroke="rgb(255,153,0)" stroke-opacity="0.2" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+        <polygon points="78.688,123.997,121.313,123.997,100,272" fill="rgb(57,44,32)"/>
+        <g class="[ fire ]">
+            <path d=" M 74.522 109.368 L 74.522 109.368 C 74.522 120.006 85.938 128.643 100 128.643 C 114.062 128.643 125.478 120.006 125.478 109.368 L 125.478 109.368 L 74.522 109.368 Z " fill-rule="evenodd" fill="rgb(255,153,0)"/>
+            <path d=" M 79.929 111.413 L 79.929 111.413 C 79.929 119.794 88.922 126.598 100 126.598 C 111.078 126.598 120.071 119.794 120.071 111.413 L 120.071 111.413 L 79.929 111.413 Z " fill-rule="evenodd" fill="rgb(255,255,0)"/>
+            <polygon points="96.148,111.397,74.522,111.397,85.335,64.225" fill="rgb(255,153,0)"/>
+            <polygon points="125.478,111.397,103.852,111.397,114.665,64.225" fill="rgb(255,153,0)"/>
+            <polygon points="110.813,109.368,89.187,109.368,100,52.051" fill="rgb(255,153,0)"/>
+            <polygon points="110.813,113.442,89.187,113.442,100,72.072" fill="rgb(255,255,0)"/>
+            <polygon points="93.328,113.442,79.929,113.442,86.628,87.811" fill="rgb(255,255,0)"/>
+            <polygon points="120.071,113.442,106.672,113.442,113.372,87.811" fill="rgb(255,255,0)"/>
+        </g>
+    </g>
+</svg>

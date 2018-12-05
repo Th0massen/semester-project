@@ -6,18 +6,22 @@ body {
 @keyframes spin {
   100% {
     transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
   }
 }
-@-moz-keyframes spin {
+@keyframes fire {
+  0% {
+    transform: scale(1);
+  }
   100% {
-    -moz-transform: rotate(360deg);
+    transform: scale(1.03);
   }
 }
-@-webkit-keyframes spin {
+@keyframes light {
+  0% {
+    transform: scale(1);
+  }
   100% {
-    -webkit-transform: rotate(360deg);
+    transform: scale(1.1);
   }
 }
 #landingPage {
@@ -117,13 +121,13 @@ body {
 .characters {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 20px;
-  max-width: 1000px;
+  grid-gap: 35px;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 15px;
 }
 .characters .titles {
   text-align: center;
-  width: 50%;
   padding: 25px;
   margin: 10px;
 }
@@ -155,15 +159,9 @@ body {
   margin: 5px auto;
 }
 .characters .char h2, .characters .playerCharacter h2 {
-  width: 70%;
   text-align: center;
   margin: 25px auto;
   font-family: "Cinzel Decorative", cursive;
-}
-.characters .char p, .characters .playerCharacter p {
-  width: 30%;
-  visibility: none;
-  display: none;
 }
 
 .charTitle {
@@ -377,39 +375,35 @@ body {
   padding: 20px;
   color: white;
   text-align: center;
-  margin-top: -50px;
 }
 #winner #winnerImg {
   width: 250px;
   height: 250px;
   background-repeat: no-repeat;
   background-size: contain;
-  margin: 0 auto 20px;
+  margin: 0 auto;
   border: 10px solid #242424;
   border-radius: 5px;
 }
 
 #victoryContainer {
   display: grid;
-  grid-template-columns: 200px 1fr 200px;
-  margin: 160px auto;
+  grid-template-columns: 38% 1fr 38%;
+  margin-top: 190px;
 }
-#victoryContainer .fire {
+#victoryContainer .torch {
+  margin: 50px auto;
+}
+#victoryContainer .torch .fire {
   position: absolute;
-  width: 0;
-  height: 0;
   border-style: solid;
   transform-origin: center bottom;
   animation: fire 0.5s linear alternate infinite;
 }
-
-@keyframes fire {
-  0% {
-    transform: scale(0.9);
-  }
-  100% {
-    transform: scale(1);
-  }
+#victoryContainer .torch .light {
+  border-style: solid;
+  transform-origin: center;
+  animation: light 0.5s linear alternate infinite;
 }
 
 /*# sourceMappingURL=main.css.map */

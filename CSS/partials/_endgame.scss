@@ -10,13 +10,13 @@
     padding: 20px;  
     color: white;
     text-align: center;
-    margin-top: -50px;
+    //margin-top: -50px;
     #winnerImg{        
         width: 250px;
         height: 250px;
         background-repeat: no-repeat;
         background-size: contain;
-        margin: 0 auto 20px;
+        margin: 0 auto;
         border: 10px solid rgb(36, 36, 36);
         border-radius: 5px;
     }
@@ -24,23 +24,20 @@
 
 #victoryContainer{
     display: grid;
-    grid-template-columns: 200px 1fr 200px;
-    margin: 160px auto;
-    .fire{
-        position: absolute;
-        width: 0;
-        height: 0;
-        border-style: solid;
-        transform-origin: center bottom;
-        animation: fire .5s linear alternate infinite;
-    }
-}
-
-@keyframes fire{
-    0% {
-        transform: scale(0.9);;
-    }
-    100% {
-        transform: scale(1.0);
+    grid-template-columns: 38% 1fr 38%;
+    margin-top: 190px;
+    .torch{
+        margin: 50px auto;
+        .fire{
+            position: absolute;
+            border-style: solid;
+            transform-origin: center bottom;
+            animation: fire .5s linear alternate infinite;
+        }
+        .light{
+            border-style: solid;
+            transform-origin: center;
+            animation: light .5s linear alternate infinite;
+        }
     }
 }

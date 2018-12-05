@@ -68,8 +68,9 @@ body {
 
 #characterSelect {
   background-image: url(../../resources/1.jpg);
-  background-position: top;
-  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-color: #2b2b2b;
   margin: 0;
 }
@@ -116,7 +117,9 @@ body {
 .characters {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 10px;
+  grid-gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 .characters .titles {
   text-align: center;
@@ -124,24 +127,25 @@ body {
   padding: 25px;
   margin: 10px;
 }
-.characters .char {
+.characters .char, .characters .playerCharacter {
   border: 1px solid black;
   margin: 25px;
-  padding: 10px;
-  background-color: white;
+  text-align: center;
+  padding: 20px;
+  background-color: #2b2b2b;
+  color: white;
 }
-.characters .char .selectBtn {
+.characters .char .selectBtn, .characters .playerCharacter .selectBtn {
   text-align: center;
   padding: 10px 15px;
-  border: 1px solid black;
   border-radius: 15px;
   text-decoration: none;
-  margin-top: 15px;
+  margin: 15px auto;
   color: white;
-  background-color: #2b2b2b;
+  background-color: #141414;
   display: none;
 }
-.characters .char .token {
+.characters .char .token, .characters .playerCharacter .token {
   margin: 10px;
   border: 2px solid #2b2b2b;
   border-radius: 100px;
@@ -150,9 +154,16 @@ body {
   display: block;
   margin: 5px auto;
 }
-.characters .char h2 {
-  width: 50%;
-  margin-top: 25px;
+.characters .char h2, .characters .playerCharacter h2 {
+  width: 70%;
+  text-align: center;
+  margin: 25px auto;
+  font-family: "Cinzel Decorative", cursive;
+}
+.characters .char p, .characters .playerCharacter p {
+  width: 30%;
+  visibility: none;
+  display: none;
 }
 
 .charTitle {
@@ -182,7 +193,8 @@ body {
 
 #GameInfo {
   position: fixed;
-  background-color: white;
+  background-color: #383838;
+  color: white;
   text-align: center;
   border: 1px solid black;
   height: 100%;

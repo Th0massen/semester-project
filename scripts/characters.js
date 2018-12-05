@@ -127,16 +127,12 @@ function clearButtons(){
     let el = document.querySelectorAll('.char');
     for(let i = 0; i < el.length; i++){
         el[i].style.border = "none";
+        el[i].style.boxShadow = "none";
     }
     let btn = document.querySelectorAll('.selectBtn');
     for(let j = 0; j < btn.length; j++ ){
         btn[j].style.display = 'none';
     }
-    /*
-    let text = document.querySelectorAll('.charTitle');
-    for(let k = 0; k < text.length; k++){
-        text[k].style.display = 'none';
-    }*/
 }
 
 // When a user clicks on a character, give it a border to highlight selected hero, and display button to contine.
@@ -144,13 +140,22 @@ function selectHero(event){
     console.log("User selected: " + event);
     let hero = document.getElementsByClassName(event); 
     let heroButton = document.getElementById(event + 'button');
-    hero[0].style.border = '5px solid green';
+    //hero[0].style.border = '5px solid green';
     heroButton.style.display = 'block';
     //document.getElementById(event + '_text').style.display = "block";
     // When the user clicks on a character button, check if player 1 or 2 has selected.
     let playerOne = document.getElementById('playerOneChar');
     let playerTwo = document.getElementById('playerTwoChar');
+    // Card borders 
+    if(playerOne.value == '0'){
+        hero[0].style.border = "3px solid blue";
+        hero[0].style.boxShadow = "0 0 20px blue";
+    } else if(playerTwo.value == '0'){
+        hero[0].style.border = "3px solid green";
+        hero[0].style.boxShadow = "0 0 20px green";
+    }
     heroButton.onclick = function(){
+        console.log(event);
         // CHeck if player 1 has chosen a character
         if(playerOne.value == '0'){
             playerOne.value = '1';
@@ -162,6 +167,9 @@ function selectHero(event){
             localStorage.setItem('Player 1', event);
             window.scrollTo(0, 0);
             clearButtons();
+            //set a border to show picked characters
+            hero[0].style.border = "3px solid blue";
+            hero[0].className = "playerCharacter";
             return playerOne
             // Check if player 2 has chose a character
         } else if(playerTwo.value == '0'){
@@ -172,7 +180,10 @@ function selectHero(event){
             // Store the character id in localstorage.
             localStorage.setItem('Player 2', event);
             window.scrollTo(0, 0);   
-            clearButtons();        
+            clearButtons();  
+            // set a border to show picked characters
+            hero[0].style.border = "3px solid green";
+            hero[0].className = "playerCharacter";      
             return playerTwo;
         }
     }

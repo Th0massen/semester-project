@@ -5,7 +5,6 @@ var PlayerScore_1 = 1;
 var PlayerScore_2 = 1;
 var playerTurn = 1;
 
-
 // Set up container
 
 var container = document.getElementById('GameContainer');
@@ -444,17 +443,7 @@ function checkTile(player){
             return PlayerScore_1, PlayerScore_2;
         // Goal
         case 65:
-            winnerModal.style.display = 'block';
-            if( player == 'Player 1' ){
-                document.getElementById('65').appendChild(document.getElementById('playerOne'));
-                winner.innerHTML = localStorage.getItem('Player 1');
-                gratz.innerHTML = "Player 1";
-            } else if( player == 'Player 2' ){
-                document.getElementById('65').appendChild(document.getElementById('playerTwo'));
-                winner.innerHTML = localStorage.getItem('Player 2');
-                gratz.innerHTML = "Player 2";
-            }
-            break;
+            checkWin(player);
     }
 }
 
@@ -465,26 +454,43 @@ function checkWin(player){
     let winnerModal = document.getElementById('winModal');
     let winner = document.getElementById('winPlayer');
     let gratz = document.getElementById('gz');
+    let endGameButton = document.getElementById("winnerBtn");
+    let victory;
     // Player 1
     if( player == "Player 1" ){
-        if( PlayerScore_1 > 65 ){
+        if( PlayerScore_1 >= 65 ){
             PlayerScore_1 = 65;
             winnerModal.style.display = 'block';
             document.getElementById('65').appendChild(document.getElementById('playerOne'));
             winner.innerHTML = localStorage.getItem('Player 1');
             gratz.innerHTML = "Player 1";
+            // add the winner to local storage
+            victory = localStorage.getItem('Player 1');
+            console.log('win' + victory);             
+            localStorage.setItem("Winner", victory);
         }
     }
     // Player 2
     else if( player == 'Player 2' ){
-        if( PlayerScore_2 > 65 ){
+        if( PlayerScore_2 >= 65 ){
             PlayerScore_2 = 65;
             winnerModal.style.display = 'block';
             document.getElementById('65').appendChild(document.getElementById('playerTwo'));
             winner.innerHTML = localStorage.getItem('Player 2');
             gratz.innerHTML = "Player 2";
+             // add the winner to local storage
+             victory = localStorage.getItem('Player 2');
+             console.log('win' + victory);
+             localStorage.setItem("Winner", victory);
         }
     }
+}
+
+// remove players from local storage and redirect to the last page
+function endGameFunction(){
+    localStorage.removeItem('Player 1');
+    localStorage.removeItem('Player 2');
+    window.location.replace('../gamefiles/endgame.html');
 }
 
 // Function to display dice icons on the html site

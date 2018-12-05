@@ -126,7 +126,7 @@ document.body.addEventListener( 'click', function(event){
 function clearButtons(){
     let el = document.querySelectorAll('.char');
     for(let i = 0; i < el.length; i++){
-        el[i].style.border = "none";
+        el[i].style.border = "1px solid black";
         el[i].style.boxShadow = "none";
     }
     let btn = document.querySelectorAll('.selectBtn');

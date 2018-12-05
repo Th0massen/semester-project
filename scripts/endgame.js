@@ -19,8 +19,8 @@ function load(){
     winImg.setAttribute('id', 'winnerImg');
     winImg.style.backgroundImage = "url('" + winnerImage + "')";
     // Append
-    winContainer.appendChild(winImg);
     winContainer.appendChild(winName);
+    winContainer.appendChild(winImg);
     displayWinner.appendChild(winContainer);
 }   
 

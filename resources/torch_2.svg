@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="isolation:isolate" viewBox="0 0 200 200" width="200" height="200">
+<defs>
+    <clipPath id="_clipPath_fP8ZdyfFN6KwTGb61zhrNLIPc0CapZzp">
+        <rect width="200" height="200"/>
+    </clipPath>
+</defs>
+    <g clip-path="url(#_clipPath_fP8ZdyfFN6KwTGb61zhrNLIPc0CapZzp)">
+        <polygon points="86.25,94,113.75,94,100,189.557" fill="rgb(159,97,43)"/>
+        <polygon points="127.5,94,72.5,94,100,28" fill="rgb(255,255,0)"/>
+        <polygon points="127.5,94,90.187,94,108.843,38.804" fill="rgb(255,153,0)"/>
+        <polygon points="107.873,94,72.5,94,90.187,38.804" fill="rgb(255,153,0)"/>
+        <polygon points="113.75,94,90.187,94,101.968,57.232" fill="rgb(255,255,0)"/>
+    </g>
+</svg>

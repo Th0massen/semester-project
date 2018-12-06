@@ -7,6 +7,7 @@
 
 #winner{
     font-family: 'Cinzel Decorative', cursive; 
+    font-size: 21px;
     padding: 20px;  
     color: white;
     text-align: center;
@@ -17,15 +18,16 @@
         background-repeat: no-repeat;
         background-size: contain;
         margin: 0 auto;
-        border: 10px solid rgb(36, 36, 36);
+        border: 20px solid rgb(255, 217, 0);
+        box-shadow:0px 15px 15px 12px #000000a4;
         border-radius: 5px;
     }
 }
 
 #victoryContainer{
     display: grid;
-    grid-template-columns: 39% 1fr 39%;
-    margin-top: 190px;
+    grid-template-columns: 38% 1fr 38%;
+    margin-top: 170px;
     .torch{
         margin: 50px auto;
         .fire{
@@ -38,4 +40,21 @@
             animation: light .5s linear alternate infinite;
         }
     }
+}
+
+#winnerText{
+    margin-top: 105px;
+    color: white;
+    font-size: 55px;
+    text-align: center;
+    font-family: 'Cinzel Decorative', cursive; 
+}
+
+#newGameBtn{
+    width: 160px;
+    height: 35px;
+    display: block;
+    margin: 65px auto;
+    font-family: 'Cinzel Decorative', cursive; 
+    font-size: 18px;
 }

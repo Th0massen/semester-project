@@ -329,11 +329,6 @@ function checkTile(player){
     let trappedPlayer = document.getElementById('trapPlayer');
     let trapText = document.getElementById('trapText');
 
-    // winner modal variables
-    let winnerModal = document.getElementById('winModal');
-    let winner = document.getElementById('winPlayer');
-    let gratz = document.getElementById('gz');
-
     // check for traps or winner
     switch(playerTile){
         // trap
@@ -454,7 +449,6 @@ function checkWin(player){
     let winnerModal = document.getElementById('winModal');
     let winner = document.getElementById('winPlayer');
     let gratz = document.getElementById('gz');
-    let endGameButton = document.getElementById("winnerBtn");
     let victory;
     // Player 1
     if( player == "Player 1" ){

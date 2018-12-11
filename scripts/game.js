@@ -251,7 +251,7 @@ function dice(){
                 setTimeout(function(){
                     PlayerScore_1 = PlayerScore_1 + 1;
                     document.getElementById(PlayerScore_1).appendChild(document.getElementById('playerOne'));
-                }, 400*(i+1))
+                }, 500 * i )
             }
             // time delay so players are done moving when the check happens
             setTimeout(function(){
@@ -284,7 +284,7 @@ function dice(){
                 setTimeout(function(){
                     PlayerScore_2 = PlayerScore_2 + 1;
                     document.getElementById(PlayerScore_2).appendChild(document.getElementById('playerTwo'));
-                }, 400*(i+1))
+                }, 500 * i )
             }
             // time delay so players are done moving when the check happens
             setTimeout(function(){

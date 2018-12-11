@@ -4,6 +4,11 @@
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
+    @media screen and (max-width: 828px){
+        background-size: contain;
+        background-position: center;
+        background-repeat: repeat;
+    }
 }
 
 /*

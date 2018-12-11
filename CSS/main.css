@@ -30,6 +30,13 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+@media screen and (max-width: 828px) {
+  #landingPage {
+    background-size: contain;
+    background-position: center;
+    background-repeat: repeat;
+  }
+}
 
 /*
 #LandingPageContent{
@@ -405,7 +412,7 @@ body {
 }
 @media screen and (max-width: 1280px) {
   .PlayerInfo {
-    visibility: hidden;
+    margin-bottom: 10px;
   }
 }
 .PlayerInfo #PlayerOne #player1Char {

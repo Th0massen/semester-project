@@ -518,4 +518,18 @@ window.onclick = function(event) {
     }
 } 
 
+function openSidebar(){
+    let sidemenu = document.getElementById('GameInfo');
+    let menuBtn = document.getElementById('openSidebar');
+    sidemenu.style.visibility = 'visible';
+    menuBtn.style.display = 'none';
+}
+
+function closeSideBar(){
+    let sidemenu = document.getElementById('GameInfo');
+    let menuBtn = document.getElementById('openSidebar');
+    sidemenu.style.visibility = 'hidden'
+    menuBtn.style.display = 'block';
+}
+
 window.onload = renderGame();

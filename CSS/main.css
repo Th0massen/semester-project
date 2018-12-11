@@ -32,7 +32,6 @@ body {
 }
 @media screen and (max-width: 828px) {
   #landingPage {
-    background-size: contain;
     background-position: center;
     background-repeat: repeat;
   }
@@ -273,6 +272,7 @@ body {
 @media screen and (max-width: 1280px) {
   #GameInfo {
     visibility: hidden;
+    height: 864 !important;
   }
 }
 #GameInfo #GameTitle {

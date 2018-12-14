@@ -78,7 +78,7 @@ function findCharacterTitle(characterName){
 // removes stored data and redirects to landing page
 function newGame(){
     localStorage.removeItem('Winner');
-    window.location.replace('../index.html');
+    window.location.replace('../gamefiles/characters.html');
 }
 
 window.onload = renderPage();

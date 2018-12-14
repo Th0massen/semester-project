@@ -413,6 +413,15 @@ body {
   border: 1px solid #888;
   width: 80%;
 }
+.modal #winnerBtn {
+  font-family: "Cinzel Decorative", cursive;
+  padding: 5px 15px;
+  font-size: 17px;
+}
+.modal #winnerBtn:hover {
+  background-color: #2b2b2b;
+  color: white;
+}
 
 .PlayerInfo {
   margin-top: 30px;
@@ -512,6 +521,10 @@ body {
   margin: 30px auto;
   font-family: "Cinzel Decorative", cursive;
   font-size: 18px;
+}
+#newGameBtn:hover {
+  background-color: #2b2b2b;
+  color: white;
 }
 
 /*# sourceMappingURL=main.css.map */
